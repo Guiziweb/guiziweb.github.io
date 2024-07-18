@@ -1,0 +1,63 @@
+#
+# Work based on https://github.com/mmistakes/minimal-mistakes/blob/master/_data/ui-text.yml
+#
+# Configuration: Add to _config.yml
+# locale: "en-US"  [YOUR PREFERRED LOCALE]
+#
+# How to use:
+# {{ site.data.ui-text[site.locale].<var_name> | default: 'text' }}
+
+# English (default)
+# -----------------
+en: &DEFAULT_EN
+  header:
+    title:
+    text: Guiziweb
+    button: Nos services
+    buttonlink: "#services"
+
+  services:
+    title: "Services"
+    text: "Nous offrons des solutions complètes pour améliorer votre présence en ligne."
+    section: services
+    list:
+      - title: "Création de Sites Web"
+        desc: "Conception de sites web qui s'adaptent à tous les appareils pour une expérience utilisateur optimale."
+        icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
+      - title: "Consulting"
+        desc: "Conseils personnalisés pour élaborer des stratégies digitales efficace"
+        icon: fas fa-coffee
+      - title: "Maintenance"
+        desc: "Services de maintenance régulière pour assurer la sécurité et le bon fonctionnement des sites web."
+        icon: fas fa-laptop
+
+  portfolio:
+    title: "Portfolio"
+    text: Nous avons été honorés de recevoir la confiance de ces entreprises.
+    section: portfolio
+    closebutton: "Fermer le projet"
+
+  contact:
+    title: "Nous contacter"
+    text: "Une réponse vous sera envoyée très rapidement."
+    section: contact
+    name: "Nom*"
+    name-validation: "Veuillez entrer votre nom."
+    email: "Email*"
+    email-validation: "Veuillez entrer votre adresse email."
+    phone: "Numéro de téléphone"
+    phone-validation: "Veuillez entrer votre numéro de téléphone."
+    message: "Message*"
+    message-validation: "Veuillez entrer un message."
+    subject: "Envoi du formulaire de contact"
+    submit: "Envoyer le message"
+
+  footer:
+    legal: "Politique de confidentialité"
+    social:
+      - url: https://github.com/guiziweb
+        icon: "fab fa-github"
+      - url: https://instagram.com/guiziweb
+        icon: "fab fa-instagram"
+en-US:
+  <<: *DEFAULT_EN
