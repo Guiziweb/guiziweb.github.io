@@ -25,7 +25,7 @@ en: &DEFAULT_EN
         desc: "Conception de sites web qui s'adaptent à tous les appareils pour une expérience utilisateur optimale."
         icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
       - title: "Consulting"
-        desc: "Conseils personnalisés pour élaborer des stratégies digitales efficace"
+        desc: "Conseils personnalisés pour élaborer des stratégies digitales efficaces"
         icon: fas fa-coffee
       - title: "Maintenance"
         desc: "Services de maintenance régulière pour assurer la sécurité et le bon fonctionnement des sites web."
