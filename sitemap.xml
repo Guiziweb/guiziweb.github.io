@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- URL de la page d'accueil -->
+    <url>
+        <loc>https://guiziweb.github.io/</loc>
+        <lastmod>2024-08-02</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- URL pour la section Accueil -->
+    <url>
+        <loc>https://guiziweb.github.io/#accueil</loc>
+        <lastmod>2024-08-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- URL pour la section Nos services -->
+    <url>
+        <loc>https://guiziweb.github.io/#services</loc>
+        <lastmod>2024-08-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- URL pour la section Nos projets -->
+    <url>
+        <loc>https://guiziweb.github.io/#projects</loc>
+        <lastmod>2024-08-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- URL pour la section Contact -->
+    <url>
+        <loc>https://guiziweb.github.io/#contact</loc>
+        <lastmod>2024-08-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- URL pour la page Facebook -->
+    <url>
+        <loc>https://www.facebook.com/guiziweb/</loc>
+        <lastmod>2024-08-02</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- URL pour la page Instagram -->
+    <url>
+        <loc>https://www.instagram.com/guiziweb</loc>
+        <lastmod>2024-08-02</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.5</priority>
+    </url>
+</urlset>
