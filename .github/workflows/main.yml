@@ -1,0 +1,27 @@
+name: Deploy Static Site
+
+on:
+  # Déclenche le workflow sur les pushes vers la branche principale
+  push:
+    branches:
+      - main
+
+  # Permet d'exécuter ce workflow manuellement depuis l'onglet Actions
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # Répertoire contenant les fichiers à déployer
+          folder: . # Déployez directement depuis le répertoire racine du dépôt
+        env:
+          # Utiliser le token GitHub pour autoriser le déploiement
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
