@@ -72,8 +72,12 @@
                         <div class="blog-item">
                             <div class="overflow-hidden">
                                 <!-- Image du post -->
-                                <img class="img-fluid w-100" src="{{ post.image }}" alt="{{ post.title }}">
-                            </div>
+                                {% assign post_title = post.title | slugify %}
+
+                                <img class="img-fluid w-100"
+                                     src="/img/posts/{{ post_title }}.jpg"
+                                     alt="{{ post.title }}">
+                                </div>
                             <div class="bg-light p-4">
                                 <div class="breadcrumb blog-meta">
                                     <!-- Métadonnées du post -->
