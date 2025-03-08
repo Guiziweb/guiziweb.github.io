@@ -67,13 +67,12 @@
     <div class="row g-4">
         <!-- Article Section -->
         <div class="col-lg-8">
-            {% if page.image %}
-            <div class="mb-4">
-                <img src="{{ page.image }}" alt="{{ page.title }}" class="img-fluid">
-            </div>
-            {% endif %}
+
 
             <article>
+                <div class="mb-4">
+                    <img  src="/img/posts/{{ page.title }}.jpg" alt="{{ page.title }}" class="img-fluid">
+                </div>
                 {{ content }}
             </article>
 
