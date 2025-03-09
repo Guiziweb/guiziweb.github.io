@@ -15,7 +15,7 @@ jobs:
       - name: Setup Ruby and Jekyll
         run: |
           sudo apt update && sudo apt install -y ruby-full build-essential
-          gem install jekyll bundler
+          sudo gem install jekyll bundler
           bundle install
 
       - name: Build Jekyll site
