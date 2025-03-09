@@ -39,4 +39,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }} # Nom d'utilisateur du serveur FTP
           password: ${{ secrets.FTP_PASSWORD }} # Mot de passe du serveur FTP
           local-dir: _site/                     # Répertoire local généré par Jekyll
-          server-dir: public_html/
+          server-dir: domains/guiziweb.shop/public_html/
