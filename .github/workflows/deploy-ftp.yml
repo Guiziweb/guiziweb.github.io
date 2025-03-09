@@ -1,0 +1,31 @@
+name: Deploy Guiziweb to FTP
+
+on:
+  push:
+    branches:
+      - main  # Déploiement uniquement si "main" est mis à jour
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby and Jekyll
+        run: |
+          sudo apt update && sudo apt install -y ruby-full build-essential
+          gem install jekyll bundler
+          bundle install
+
+      - name: Build Jekyll site
+        run: jekyll build -d _site
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: _site/
+          server-dir: public_html/
