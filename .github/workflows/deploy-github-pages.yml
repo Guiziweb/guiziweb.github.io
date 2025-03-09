@@ -1,0 +1,29 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - develop  # Déploiement uniquement si "develop" est mis à jour
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Ruby and Jekyll
+        run: |
+          sudo apt update && sudo apt install -y ruby-full build-essential
+          gem install jekyll bundler
+          bundle install
+
+      - name: Build Jekyll site
+        run: JEKYLL_ENV=production jekyll build -d _site
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _site
+          publish_branch: gh-pages
