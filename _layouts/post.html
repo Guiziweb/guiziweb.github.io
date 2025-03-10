@@ -42,10 +42,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ms-auto p-4 p-lg-0">
-            <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
-            <li class="nav-item"><a href="/articles/" class="nav-link active">Articles</a></li>
-            <li class="nav-item"><a href="/about/" class="nav-link">À propos</a></li>
-            <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
+            <a href="/index.html" class="nav-item nav-link">Accueil</a>
+            <a href="/tarifs.html" class="nav-item nav-link">Nos Tarifs</a>
+            <a href="/projets.html" class="nav-item nav-link">Nos Projets</a>
+            <a href="/articles/" class="nav-item nav-link active">Nos Articles</a>
         </ul>
     </div>
 </nav>
@@ -67,15 +67,14 @@
     <div class="row g-4">
         <!-- Article Section -->
         <div class="col-lg-8">
-
-
             <article>
-                <div class="mb-4">
-                    <img  src="/img/posts/{{ page.title }}.jpg" alt="{{ page.title }}" class="img-fluid">
-                </div>
+                {% if page.image  %}
+                    <div class="mb-4">
+                        <img   src="{{ page.image }}" alt="{{ page.title }}" class="img-fluid">
+                    </div>
+                {% endif %}
                 {{ content }}
             </article>
-
             <!-- Tags -->
             {% if page.tags %}
             <div class="my-5">

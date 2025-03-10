@@ -3,7 +3,7 @@
     
     <!-- URL de la page d'accueil -->
     <url>
-        <loc>https://guiziweb.github.io/index.html</loc>
+        <loc>https://guiziweb.shop//index.html</loc>
         <lastmod>2024-08-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
@@ -11,7 +11,7 @@
     
     <!-- URL de la page Projets -->
     <url>
-        <loc>https://guiziweb.github.io/projets.html</loc>
+        <loc>https://guiziweb.shop/projets.html</loc>
         <lastmod>2024-08-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -19,7 +19,7 @@
     
     <!-- URL de la page Tarifs -->
     <url>
-        <loc>https://guiziweb.github.io/tarifs.html</loc>
+        <loc>https://guiziweb.shop/tarifs.html</loc>
         <lastmod>2024-08-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
