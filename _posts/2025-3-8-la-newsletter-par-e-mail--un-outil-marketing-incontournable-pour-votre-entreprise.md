@@ -3,6 +3,7 @@ layout: post
 title: "La newsletter par e-mail : un outil marketing incontournable pour votre entreprise"
 author: "GuiziWeb"
 date: 2025-3-8
+image : /img/posts/test.jpg
 tags:
   - newsletter
   - email marketing

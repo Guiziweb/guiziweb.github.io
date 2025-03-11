@@ -1,57 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    <meta name="keywords" content="{{ page.keywords | default: site.keywords }}">
-    <meta name="author" content="{{ page.author }}">
-    <title>{{ page.title }}</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="/img/favicon.ico">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Styles -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- CSS Libraries -->
-    <link href="/assets/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="/assets/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="/assets/css/style.css" rel="stylesheet">
-</head>
-
-<body>
-<!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top">
-    <a href="/" class="navbar-brand ms-4">
-        <img src="/img/logo.webp" alt="Logo" style="height: 60px;">
-    </a>
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="/index.html" class="nav-item nav-link">Accueil</a>
-            <a href="/tarifs.html" class="nav-item nav-link">Nos Tarifs</a>
-            <a href="/projets.html" class="nav-item nav-link">Nos Projets</a>
-            <a href="/articles/" class="nav-item nav-link active">Nos Articles</a>
-        </ul>
-    </div>
-</nav>
-<!-- Navbar End -->
-
-<!-- Page Header Start -->
+---
+layout: default
+title: {{ page.title }}
+---
 <div class="container-fluid bg-primary py-5 mb-5">
     <div class="container py-5">
         <h1 class="display-3 text-white text-center">{{ page.title }}</h1>
@@ -91,20 +41,3 @@
         </div>
     </div>
 </div>
-<!-- Main Content End -->
-
-<!-- Footer Start -->
-<footer class="bg-dark text-light py-4">
-    <div class="container text-center">
-        <p class="mb-0">&copy; 2023 GuiziWeb. Tous droits réservés.</p>
-    </div>
-</footer>
-<!-- Footer End -->
-
-<!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/main.js"></script>
-</body>
-
-</html>
