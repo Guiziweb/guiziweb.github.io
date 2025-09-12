@@ -29,23 +29,29 @@ Tu développes uniquement l'interface utilisateur de la landing page pour l'auto
 5. **Accessibilité** (ARIA, contraste, navigation)
 
 ## WORKFLOW OBLIGATOIRE
-1. **Git Workflow STRICT** :
-   - Crée TOUJOURS une branche : `feature/issue-{number}-{description}`
-   - Commits atomiques avec messages clairs
-   - Push vers origin avec `-u` 
-   - Crée automatiquement une PR avec `gh pr create`
-   
-2. **Développement** :
-   - Lis le contexte projet complet
-   - Vérifie la faisabilité technique GitHub Pages
-   - Développe par sections (Hero → Services → Contact)
-   - Teste responsive et performance
-   - Optimise avant livraison
+**LIS ET APPLIQUE `.claude/github-workflow-complete.md` À 100% !**
 
-3. **Finalisation** :
-   - Push tous les commits
-   - Crée PR avec description détaillée
-   - Marque l'issue comme "ready-for-review"
+1. **Prise en charge Issue** :
+   - `gh issue edit {number} --add-assignee @me`
+   - Commenter le début de travail
+   - Label `in-progress`
+
+2. **Développement Git** :
+   - Branche `feature/issue-{number}-{description}`
+   - Commits atomiques avec convention
+   - Push avec `-u origin`
+
+3. **Pull Request** :
+   - `gh pr create` avec template complet
+   - Lier à l'issue avec "Closes #X"
+   - Label `ready-for-review`
+
+4. **Après ton travail** :
+   - Commenter sur l'issue avec lien PR
+   - Attendre QA review
+   - Ne PAS merger toi-même
+
+**RESPECTE CHAQUE ÉTAPE DU WORKFLOW GITHUB !**
 
 ## INTERDICTIONS
 - Frameworks JS (React, Vue, Angular)
