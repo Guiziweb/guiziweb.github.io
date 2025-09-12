@@ -228,6 +228,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initProgressBar();
     initToastSystem();
     initButtonRipples();
+    initServiceCardOverlays();
+    initTestimonialsCarousel();
+    initDynamicContentLoading();
     
     // Mobile-specific enhancements
     initMobileOptimizations();
@@ -350,29 +353,58 @@ function updateActiveNavLink(activeId) {
     });
 }
 
-// Navbar Scroll Effect
+// Enhanced Smart Navigation System
 function initNavbarScrollEffect() {
     const navbar = document.getElementById('navbar');
     let lastScrollY = window.scrollY;
+    let ticking = false;
     
-    window.addEventListener('scroll', function() {
+    const updateNavbar = () => {
         const currentScrollY = window.scrollY;
+        const scrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+        const scrollDelta = Math.abs(currentScrollY - lastScrollY);
         
         if (navbar) {
+            // Enhanced shadow effects based on scroll position
             if (currentScrollY > 100) {
-                navbar.classList.add('shadow-md');
-                navbar.classList.remove('shadow-sm');
+                navbar.classList.add('shadow-md', 'bg-white/98');
+                navbar.classList.remove('shadow-sm', 'bg-white/95');
             } else {
-                navbar.classList.add('shadow-sm');
-                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm', 'bg-white/95');
+                navbar.classList.remove('shadow-md', 'bg-white/98');
+            }
+            
+            // Smart hide/show navbar on scroll (desktop only)
+            if (window.innerWidth >= 768 && scrollDelta > 5) {
+                if (scrollDirection === 'down' && currentScrollY > 200) {
+                    navbar.style.transform = 'translateY(-100%)';
+                    navbar.style.transition = 'transform 0.3s ease-in-out';
+                } else if (scrollDirection === 'up') {
+                    navbar.style.transform = 'translateY(0)';
+                    navbar.style.transition = 'transform 0.3s ease-in-out';
+                }
+            }
+            
+            // Always show navbar when near top
+            if (currentScrollY < 100) {
+                navbar.style.transform = 'translateY(0)';
             }
         }
         
-        // Auto-update active section in nav
+        // Auto-update active section in nav with breadcrumb
         updateActiveSection();
+        updateBreadcrumb(currentScrollY);
         
         lastScrollY = currentScrollY;
-    });
+        ticking = false;
+    };
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 // Update Active Section Based on Scroll Position
@@ -394,6 +426,71 @@ function updateActiveSection() {
     if (activeSection) {
         updateActiveNavLink(activeSection);
     }
+}
+
+// Advanced Breadcrumb Navigation System
+function updateBreadcrumb(scrollY) {
+    let breadcrumb = document.querySelector('.breadcrumb-nav');
+    
+    if (!breadcrumb) {
+        breadcrumb = createBreadcrumbNav();
+    }
+    
+    const sections = [
+        { id: 'hero', title: 'Accueil', start: 0 },
+        { id: 'services', title: 'Services IA', start: 800 },
+        { id: 'benefits', title: 'Avantages', start: 1600 },
+        { id: 'testimonials', title: 'Témoignages', start: 2400 },
+        { id: 'contact', title: 'Contact', start: 3200 }
+    ];
+    
+    let currentSection = sections[0];
+    for (let section of sections) {
+        if (scrollY >= section.start) {
+            currentSection = section;
+        }
+    }
+    
+    const breadcrumbText = breadcrumb.querySelector('.breadcrumb-text');
+    const breadcrumbProgress = breadcrumb.querySelector('.breadcrumb-progress');
+    
+    if (breadcrumbText && breadcrumbProgress) {
+        breadcrumbText.textContent = currentSection.title;
+        
+        // Calculate progress within current section
+        const nextSection = sections[sections.indexOf(currentSection) + 1];
+        const sectionProgress = nextSection 
+            ? ((scrollY - currentSection.start) / (nextSection.start - currentSection.start)) * 100
+            : 100;
+        
+        breadcrumbProgress.style.width = Math.min(100, Math.max(0, sectionProgress)) + '%';
+        
+        // Show/hide breadcrumb based on scroll position
+        if (scrollY > 200) {
+            breadcrumb.classList.remove('opacity-0', 'pointer-events-none');
+            breadcrumb.classList.add('opacity-100');
+        } else {
+            breadcrumb.classList.add('opacity-0', 'pointer-events-none');
+            breadcrumb.classList.remove('opacity-100');
+        }
+    }
+}
+
+function createBreadcrumbNav() {
+    const breadcrumb = document.createElement('div');
+    breadcrumb.className = 'breadcrumb-nav fixed top-20 right-4 z-40 bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg opacity-0 pointer-events-none transition-all duration-300 hidden md:block';
+    breadcrumb.innerHTML = `
+        <div class="flex items-center space-x-3">
+            <div class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+            <span class="breadcrumb-text text-sm font-medium text-gray-700">Accueil</span>
+            <div class="w-16 h-1 bg-gray-200 rounded-full overflow-hidden">
+                <div class="breadcrumb-progress h-full bg-blue-600 transition-all duration-300 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(breadcrumb);
+    return breadcrumb;
 }
 
 // Back to Top Button
@@ -418,55 +515,215 @@ function initBackToTop() {
     }
 }
 
-// ROI Calculator
+// Advanced ROI Calculator with Real-time Updates
 function initROICalculator() {
-    // Function is called by onclick in HTML
-    window.calculateROI = function() {
-        const employeesSelect = document.getElementById('employees');
-        const sectorSelect = document.getElementById('sector');
-        const resultDiv = document.getElementById('roi-result');
+    const employeesSelect = document.getElementById('employees');
+    const sectorSelect = document.getElementById('sector');
+    const resultDiv = document.getElementById('roi-result');
+    
+    if (!employeesSelect || !sectorSelect || !resultDiv) return;
+    
+    // Real-time updates on input change
+    [employeesSelect, sectorSelect].forEach(element => {
+        element.addEventListener('change', calculateROIRealTime);
+    });
+    
+    // Enhanced calculate function
+    window.calculateROI = calculateROIRealTime;
+    
+    function calculateROIRealTime() {
         const monthlySavings = document.getElementById('monthly-savings');
         const roiPercentage = document.getElementById('roi-percentage');
         
-        if (!employeesSelect || !sectorSelect || !resultDiv) return;
+        if (!monthlySavings || !roiPercentage) return;
         
         const employees = parseInt(employeesSelect.value) || 15;
         const sector = sectorSelect.value || 'service';
         
-        // Calcul simplifié du ROI basé sur les employés et le secteur
-        let baseSavings = employees * 200; // Base de 200€ par employé
+        // Enhanced calculation with multiple factors
+        const calculations = calculateAdvancedROI(employees, sector);
         
-        // Multiplicateur selon le secteur
-        const sectorMultipliers = {
-            'commerce': 1.2,
-            'service': 1.0,
-            'industrie': 1.5,
-            'sante': 1.3,
-            'batiment': 1.1
+        // Animate numbers
+        animateNumber(monthlySavings, parseInt(monthlySavings.textContent.replace(/\D/g, '')) || 0, 
+                     calculations.monthlySavings, '€', 1000);
+        animateNumber(roiPercentage, parseInt(roiPercentage.textContent.replace(/\D/g, '')) || 0, 
+                     calculations.roi, '%', 1000);
+        
+        // Show detailed breakdown
+        updateROIBreakdown(calculations);
+        
+        // Show result with enhanced animation
+        showROIResult();
+        
+        // Track calculation event
+        trackCalculation(employees, sector, calculations);
+    }
+    
+    function calculateAdvancedROI(employees, sector) {
+        // Base calculation factors
+        const hourlyRate = 25; // Average hourly cost per employee
+        const workingHoursPerMonth = 160; // ~22 days * 7.5 hours
+        const automationEfficiency = 0.35; // 35% time saved on average
+        
+        // Sector-specific multipliers and factors
+        const sectorData = {
+            'commerce': { 
+                multiplier: 1.2, 
+                processes: ['inventory', 'customer_service', 'billing'],
+                timeSpentOnAutomatable: 0.4 // 40% of time on automatable tasks
+            },
+            'service': { 
+                multiplier: 1.0, 
+                processes: ['scheduling', 'customer_service', 'reporting'],
+                timeSpentOnAutomatable: 0.35
+            },
+            'industrie': { 
+                multiplier: 1.5, 
+                processes: ['quality_control', 'inventory', 'maintenance'],
+                timeSpentOnAutomatable: 0.45
+            },
+            'sante': { 
+                multiplier: 1.3, 
+                processes: ['scheduling', 'records', 'billing'],
+                timeSpentOnAutomatable: 0.3
+            },
+            'batiment': { 
+                multiplier: 1.1, 
+                processes: ['scheduling', 'inventory', 'reporting'],
+                timeSpentOnAutomatable: 0.25
+            }
         };
         
-        const finalSavings = Math.round(baseSavings * (sectorMultipliers[sector] || 1.0));
-        const investmentCost = Math.max(2000, employees * 100); // Coût d'investissement estimé
-        const roi = Math.round((finalSavings * 12 / investmentCost) * 100);
+        const currentSector = sectorData[sector] || sectorData['service'];
         
-        // Affichage des résultats
-        if (monthlySavings && roiPercentage) {
-            monthlySavings.textContent = finalSavings.toLocaleString('fr-FR') + '€';
-            roiPercentage.textContent = roi + '%';
+        // Calculate monthly employee cost
+        const monthlyEmployeeCost = employees * hourlyRate * workingHoursPerMonth;
+        
+        // Calculate time spent on automatable tasks
+        const automatableHours = employees * workingHoursPerMonth * currentSector.timeSpentOnAutomatable;
+        
+        // Calculate savings from automation
+        const timeSaved = automatableHours * automationEfficiency;
+        const monthlySavings = Math.round(timeSaved * hourlyRate * currentSector.multiplier);
+        
+        // Calculate investment cost (more sophisticated)
+        const baseImplementationCost = Math.max(3000, employees * 150);
+        const complexityMultiplier = currentSector.processes.length * 0.15;
+        const investmentCost = Math.round(baseImplementationCost * (1 + complexityMultiplier));
+        
+        // Calculate ROI and payback period
+        const yearlyRevenue = monthlySavings * 12;
+        const roi = Math.round((yearlyRevenue / investmentCost) * 100);
+        const paybackMonths = Math.round(investmentCost / monthlySavings);
+        
+        // Additional metrics
+        const productivityIncrease = Math.round(automationEfficiency * currentSector.timeSpentOnAutomatable * 100);
+        const errorReduction = Math.round(75 * currentSector.multiplier);
+        
+        return {
+            monthlySavings,
+            roi,
+            investmentCost,
+            paybackMonths,
+            productivityIncrease,
+            errorReduction,
+            timeSaved: Math.round(timeSaved),
+            processes: currentSector.processes.length
+        };
+    }
+    
+    function animateNumber(element, from, to, suffix = '', duration = 1000) {
+        const startTime = performance.now();
+        const difference = to - from;
+        
+        function updateNumber(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
             
+            // Easing function (easeOutCubic)
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            
+            const current = Math.round(from + (difference * easeProgress));
+            element.textContent = current.toLocaleString('fr-FR') + suffix;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+            }
+        }
+        
+        requestAnimationFrame(updateNumber);
+    }
+    
+    function updateROIBreakdown(calculations) {
+        let breakdown = document.querySelector('.roi-breakdown');
+        
+        if (!breakdown) {
+            breakdown = createROIBreakdown();
+        }
+        
+        breakdown.innerHTML = `
+            <div class="grid grid-cols-2 gap-4 text-sm">
+                <div class="bg-blue-50 p-3 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-blue-600">${calculations.timeSaved}h</div>
+                    <div class="text-gray-600">Temps libéré/mois</div>
+                </div>
+                <div class="bg-green-50 p-3 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-green-600">${calculations.paybackMonths}</div>
+                    <div class="text-gray-600">Mois pour ROI</div>
+                </div>
+                <div class="bg-purple-50 p-3 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-purple-600">${calculations.productivityIncrease}%</div>
+                    <div class="text-gray-600">Productivité</div>
+                </div>
+                <div class="bg-orange-50 p-3 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-orange-600">${calculations.errorReduction}%</div>
+                    <div class="text-gray-600">Erreurs réduites</div>
+                </div>
+            </div>
+            <div class="mt-4 p-3 bg-gray-50 rounded-lg">
+                <div class="text-xs text-gray-600 text-center">
+                    Investissement initial estimé: ${calculations.investmentCost.toLocaleString('fr-FR')}€
+                </div>
+            </div>
+        `;
+    }
+    
+    function createROIBreakdown() {
+        const breakdown = document.createElement('div');
+        breakdown.className = 'roi-breakdown mt-4';
+        document.getElementById('roi-result').appendChild(breakdown);
+        return breakdown;
+    }
+    
+    function showROIResult() {
+        if (resultDiv.classList.contains('hidden')) {
             resultDiv.classList.remove('hidden');
             
-            // Animation d'apparition
-            resultDiv.style.opacity = '0';
-            resultDiv.style.transform = 'translateY(10px)';
-            
-            setTimeout(() => {
-                resultDiv.style.transition = 'all 0.3s ease';
-                resultDiv.style.opacity = '1';
-                resultDiv.style.transform = 'translateY(0)';
-            }, 50);
+            // Staggered animation for elements
+            const elements = resultDiv.querySelectorAll('.grid > div');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(10px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.3s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
         }
-    };
+    }
+    
+    function trackCalculation(employees, sector, results) {
+        // Analytics tracking (would integrate with Google Analytics or similar)
+        console.log('ROI Calculation:', {
+            employees,
+            sector,
+            monthlySavings: results.monthlySavings,
+            roi: results.roi,
+            timestamp: new Date()
+        });
+    }
 }
 
 // Form Validation
@@ -1130,16 +1387,667 @@ function initPerformanceMonitoring() {
     });
 }
 
+// Advanced Service Card Overlays
+function initServiceCardOverlays() {
+    const serviceCards = document.querySelectorAll('#services .group');
+    
+    serviceCards.forEach((card, index) => {
+        // Add detailed overlay on hover/click
+        card.addEventListener('mouseenter', function() {
+            if (window.innerWidth >= 768) { // Desktop only
+                showServiceOverlay(this, index);
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            hideServiceOverlay(this);
+        });
+        
+        // Touch devices - tap to toggle
+        card.addEventListener('click', function(e) {
+            if (window.innerWidth < 768) {
+                e.preventDefault();
+                toggleServiceOverlay(this, index);
+            }
+        });
+    });
+    
+    function showServiceOverlay(card, index) {
+        const overlay = getOrCreateOverlay(card, index);
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        
+        // Animate overlay content
+        const overlayContent = overlay.querySelector('.overlay-content');
+        if (overlayContent) {
+            overlayContent.style.transform = 'translateY(0)';
+        }
+    }
+    
+    function hideServiceOverlay(card) {
+        const overlay = card.querySelector('.service-overlay');
+        if (overlay) {
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.classList.remove('opacity-100');
+            
+            const overlayContent = overlay.querySelector('.overlay-content');
+            if (overlayContent) {
+                overlayContent.style.transform = 'translateY(10px)';
+            }
+        }
+    }
+    
+    function toggleServiceOverlay(card, index) {
+        const overlay = getOrCreateOverlay(card, index);
+        const isVisible = !overlay.classList.contains('opacity-0');
+        
+        if (isVisible) {
+            hideServiceOverlay(card);
+        } else {
+            showServiceOverlay(card, index);
+        }
+    }
+    
+    function getOrCreateOverlay(card, index) {
+        let overlay = card.querySelector('.service-overlay');
+        
+        if (!overlay) {
+            overlay = createServiceOverlay(index);
+            card.appendChild(overlay);
+        }
+        
+        return overlay;
+    }
+    
+    function createServiceOverlay(index) {
+        const overlayData = [
+            {
+                title: "Automatisation des Processus",
+                details: "Transformez vos tâches manuelles répétitives en workflows automatisés intelligents",
+                features: [
+                    "Intégration CRM/ERP existant",
+                    "Workflows personnalisés", 
+                    "Dashboard de monitoring",
+                    "Formation équipes incluse"
+                ],
+                cta: "Découvrir l'automatisation"
+            },
+            {
+                title: "Analyse Prédictive",
+                details: "Anticipez les tendances et optimisez vos décisions avec des modèles IA avancés",
+                features: [
+                    "Prévisions de vente précises",
+                    "Optimisation automatique des stocks",
+                    "Détection d'anomalies",
+                    "Rapports intelligents"
+                ],
+                cta: "Voir les analyses IA"
+            },
+            {
+                title: "Chatbots Intelligents", 
+                details: "Assistant virtuel 24/7 qui comprend vos clients et représente votre expertise",
+                features: [
+                    "Compréhension contextuelle",
+                    "Intégration multicanale",
+                    "Base de connaissances auto-apprenante",
+                    "Escalade vers humains"
+                ],
+                cta: "Tester le chatbot"
+            },
+            {
+                title: "Vision Artificielle",
+                details: "Automatisez l'inspection visuelle et le contrôle qualité avec une précision surhumaine",
+                features: [
+                    "Détection défauts en temps réel",
+                    "Classification automatique",
+                    "Intégration chaîne production",
+                    "Historique et traçabilité"
+                ],
+                cta: "Voir la démo vision"
+            },
+            {
+                title: "Optimisation des Données",
+                details: "Transformez vos données dispersées en insights actionnables et tableaux de bord",
+                features: [
+                    "Centralisation sources multiples",
+                    "Nettoyage automatique",
+                    "Visualisations interactives",
+                    "Alertes intelligentes"
+                ],
+                cta: "Auditer mes données"
+            },
+            {
+                title: "Formation & Accompagnement",
+                details: "Montée en compétences complète pour une adoption IA réussie dans votre entreprise",
+                features: [
+                    "Formation métier spécialisée",
+                    "Support technique dédié",
+                    "Documentation personnalisée",
+                    "Communauté d'utilisateurs"
+                ],
+                cta: "Planifier formation"
+            }
+        ];
+        
+        const data = overlayData[index] || overlayData[0];
+        
+        const overlay = document.createElement('div');
+        overlay.className = 'service-overlay absolute inset-0 bg-gradient-to-br from-blue-600/95 to-purple-600/95 rounded-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center z-10';
+        
+        overlay.innerHTML = `
+            <div class="overlay-content text-white p-6 text-center transform translateY(10px) transition-transform duration-300">
+                <h4 class="text-xl font-bold mb-3">${data.title}</h4>
+                <p class="text-blue-100 mb-4 text-sm leading-relaxed">${data.details}</p>
+                <ul class="space-y-2 mb-6">
+                    ${data.features.map(feature => `
+                        <li class="flex items-center justify-center text-sm">
+                            <i class="fas fa-check-circle mr-2 text-blue-200"></i>
+                            <span>${feature}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+                <button class="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-sm">
+                    ${data.cta}
+                </button>
+            </div>
+        `;
+        
+        return overlay;
+    }
+}
+
+// Interactive Testimonials Carousel
+function initTestimonialsCarousel() {
+    const testimonialsSection = document.querySelector('#testimonials');
+    if (!testimonialsSection) return;
+    
+    const testimonialCards = testimonialsSection.querySelectorAll('.testimonial-card');
+    if (testimonialCards.length === 0) return;
+    
+    let currentTestimonial = 0;
+    let isAutoPlaying = true;
+    let carouselInterval;
+    
+    // Add navigation controls
+    const carouselControls = createCarouselControls();
+    testimonialsSection.appendChild(carouselControls);
+    
+    // Add indicators
+    const indicators = createCarouselIndicators(testimonialCards.length);
+    testimonialsSection.appendChild(indicators);
+    
+    // Initialize carousel
+    setupCarousel();
+    startAutoPlay();
+    
+    function createCarouselControls() {
+        const controls = document.createElement('div');
+        controls.className = 'testimonial-controls flex justify-center items-center space-x-4 mt-8';
+        controls.innerHTML = `
+            <button class="prev-btn p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+                <i class="fas fa-chevron-left text-gray-600"></i>
+            </button>
+            <button class="play-pause-btn p-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white transition-colors">
+                <i class="fas fa-pause"></i>
+            </button>
+            <button class="next-btn p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+                <i class="fas fa-chevron-right text-gray-600"></i>
+            </button>
+        `;
+        
+        // Add event listeners
+        controls.querySelector('.prev-btn').addEventListener('click', () => previousTestimonial());
+        controls.querySelector('.next-btn').addEventListener('click', () => nextTestimonial());
+        controls.querySelector('.play-pause-btn').addEventListener('click', () => toggleAutoPlay());
+        
+        return controls;
+    }
+    
+    function createCarouselIndicators(count) {
+        const indicators = document.createElement('div');
+        indicators.className = 'testimonial-indicators flex justify-center space-x-2 mt-4';
+        
+        for (let i = 0; i < count; i++) {
+            const indicator = document.createElement('button');
+            indicator.className = `indicator w-3 h-3 rounded-full transition-all duration-300 ${i === 0 ? 'bg-blue-600' : 'bg-gray-300'}`;
+            indicator.addEventListener('click', () => goToTestimonial(i));
+            indicators.appendChild(indicator);
+        }
+        
+        return indicators;
+    }
+    
+    function setupCarousel() {
+        testimonialCards.forEach((card, index) => {
+            if (index === 0) {
+                card.classList.add('active');
+                card.style.opacity = '1';
+                card.style.transform = 'translateX(0) scale(1)';
+            } else {
+                card.classList.remove('active');
+                card.style.opacity = '0.7';
+                card.style.transform = 'translateX(100px) scale(0.95)';
+            }
+        });
+        
+        updateIndicators();
+    }
+    
+    function nextTestimonial() {
+        currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+        updateCarousel();
+    }
+    
+    function previousTestimonial() {
+        currentTestimonial = (currentTestimonial - 1 + testimonialCards.length) % testimonialCards.length;
+        updateCarousel();
+    }
+    
+    function goToTestimonial(index) {
+        currentTestimonial = index;
+        updateCarousel();
+    }
+    
+    function updateCarousel() {
+        testimonialCards.forEach((card, index) => {
+            card.style.transition = 'all 0.5s ease-in-out';
+            
+            if (index === currentTestimonial) {
+                card.classList.add('active');
+                card.style.opacity = '1';
+                card.style.transform = 'translateX(0) scale(1)';
+                card.style.zIndex = '10';
+            } else if (index < currentTestimonial) {
+                card.classList.remove('active');
+                card.style.opacity = '0.5';
+                card.style.transform = 'translateX(-100px) scale(0.9)';
+                card.style.zIndex = '1';
+            } else {
+                card.classList.remove('active');
+                card.style.opacity = '0.5';
+                card.style.transform = 'translateX(100px) scale(0.9)';
+                card.style.zIndex = '1';
+            }
+        });
+        
+        updateIndicators();
+    }
+    
+    function updateIndicators() {
+        const indicators = document.querySelectorAll('.indicator');
+        indicators.forEach((indicator, index) => {
+            if (index === currentTestimonial) {
+                indicator.classList.add('bg-blue-600');
+                indicator.classList.remove('bg-gray-300');
+            } else {
+                indicator.classList.add('bg-gray-300');
+                indicator.classList.remove('bg-blue-600');
+            }
+        });
+    }
+    
+    function startAutoPlay() {
+        if (isAutoPlaying) {
+            carouselInterval = setInterval(() => {
+                nextTestimonial();
+            }, 5000);
+        }
+    }
+    
+    function stopAutoPlay() {
+        if (carouselInterval) {
+            clearInterval(carouselInterval);
+        }
+    }
+    
+    function toggleAutoPlay() {
+        const playPauseBtn = document.querySelector('.play-pause-btn i');
+        
+        if (isAutoPlaying) {
+            stopAutoPlay();
+            isAutoPlaying = false;
+            playPauseBtn.className = 'fas fa-play';
+        } else {
+            isAutoPlaying = true;
+            startAutoPlay();
+            playPauseBtn.className = 'fas fa-pause';
+        }
+    }
+    
+    // Pause auto-play on hover
+    testimonialsSection.addEventListener('mouseenter', () => {
+        if (isAutoPlaying) stopAutoPlay();
+    });
+    
+    testimonialsSection.addEventListener('mouseleave', () => {
+        if (isAutoPlaying) startAutoPlay();
+    });
+    
+    // Touch gestures for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    testimonialsSection.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    testimonialsSection.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextTestimonial();
+            } else {
+                previousTestimonial();
+            }
+        }
+    }
+}
+
+// Dynamic Content Loading and State Management
+function initDynamicContentLoading() {
+    // Progressive content enhancement
+    enhanceFormInteractions();
+    initContentPreloader();
+    initStateManagement();
+    initAdvancedAnimationTriggers();
+}
+
+function enhanceFormInteractions() {
+    const contactForm = document.querySelector('#contact form');
+    if (!contactForm) return;
+    
+    // Advanced form state management
+    const formState = {
+        currentStep: 0,
+        isValid: false,
+        data: {}
+    };
+    
+    // Real-time field enhancement
+    const formInputs = contactForm.querySelectorAll('input, select, textarea');
+    formInputs.forEach(input => {
+        // Smart autocomplete suggestions
+        if (input.name === 'company') {
+            addCompanyAutoComplete(input);
+        }
+        
+        // Real-time validation with better UX
+        input.addEventListener('input', debounce(() => {
+            validateFieldAdvanced(input);
+            updateFormProgress();
+        }, 300));
+        
+        // Enhanced focus/blur effects
+        input.addEventListener('focus', () => {
+            input.parentElement.classList.add('form-field-focused');
+            showFieldHints(input);
+        });
+        
+        input.addEventListener('blur', () => {
+            input.parentElement.classList.remove('form-field-focused');
+            hideFieldHints(input);
+        });
+    });
+    
+    function addCompanyAutoComplete(input) {
+        // Simulate company suggestions (would integrate with API)
+        const suggestions = [
+            'PME Services', 'Tech Innovation SARL', 'Commerce Plus', 
+            'Industrie Moderne', 'Santé & Bien-être', 'Bâtiment Pro'
+        ];
+        
+        let suggestionList = null;
+        
+        input.addEventListener('input', () => {
+            const value = input.value.toLowerCase();
+            if (value.length > 2) {
+                const matches = suggestions.filter(s => s.toLowerCase().includes(value));
+                if (matches.length > 0) {
+                    showSuggestions(input, matches);
+                }
+            } else {
+                hideSuggestions();
+            }
+        });
+        
+        function showSuggestions(input, matches) {
+            hideSuggestions();
+            
+            suggestionList = document.createElement('div');
+            suggestionList.className = 'autocomplete-suggestions absolute z-20 w-full bg-white border border-gray-300 rounded-lg mt-1 shadow-lg';
+            
+            matches.forEach(match => {
+                const suggestion = document.createElement('div');
+                suggestion.className = 'p-3 hover:bg-blue-50 cursor-pointer text-sm border-b border-gray-100 last:border-b-0';
+                suggestion.textContent = match;
+                suggestion.addEventListener('click', () => {
+                    input.value = match;
+                    hideSuggestions();
+                    input.dispatchEvent(new Event('input'));
+                });
+                suggestionList.appendChild(suggestion);
+            });
+            
+            input.parentElement.appendChild(suggestionList);
+        }
+        
+        function hideSuggestions() {
+            if (suggestionList) {
+                suggestionList.remove();
+                suggestionList = null;
+            }
+        }
+    }
+    
+    function validateFieldAdvanced(field) {
+        // Enhanced validation with better error messages
+        const isValid = validateField(field);
+        
+        if (isValid) {
+            addFieldSuccess(field);
+        } else {
+            removeFieldSuccess(field);
+        }
+        
+        return isValid;
+    }
+    
+    function addFieldSuccess(field) {
+        field.classList.add('border-green-500');
+        field.classList.remove('border-gray-300');
+        
+        // Add success icon
+        let successIcon = field.parentElement.querySelector('.success-icon');
+        if (!successIcon) {
+            successIcon = document.createElement('i');
+            successIcon.className = 'success-icon fas fa-check-circle text-green-500 absolute right-3 top-1/2 transform -translate-y-1/2';
+            field.parentElement.classList.add('relative');
+            field.parentElement.appendChild(successIcon);
+        }
+    }
+    
+    function removeFieldSuccess(field) {
+        field.classList.remove('border-green-500');
+        const successIcon = field.parentElement.querySelector('.success-icon');
+        if (successIcon) {
+            successIcon.remove();
+        }
+    }
+    
+    function showFieldHints(field) {
+        const hints = {
+            'email': 'Format: nom@entreprise.com',
+            'phone': 'Format: 06 12 34 56 78',
+            'company': 'Nom complet de votre entreprise',
+            'message': 'Décrivez vos défis et objectifs principaux'
+        };
+        
+        const hint = hints[field.name];
+        if (hint && !field.parentElement.querySelector('.field-hint')) {
+            const hintEl = document.createElement('div');
+            hintEl.className = 'field-hint text-xs text-blue-600 mt-1 opacity-0 transition-opacity duration-300';
+            hintEl.textContent = hint;
+            field.parentElement.appendChild(hintEl);
+            
+            setTimeout(() => hintEl.classList.add('opacity-100'), 10);
+        }
+    }
+    
+    function hideFieldHints(field) {
+        const hint = field.parentElement.querySelector('.field-hint');
+        if (hint) {
+            hint.classList.remove('opacity-100');
+            setTimeout(() => hint.remove(), 300);
+        }
+    }
+    
+    function updateFormProgress() {
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        const validFields = Array.from(requiredFields).filter(field => 
+            validateField(field) && field.value.trim()
+        );
+        
+        const progress = (validFields.length / requiredFields.length) * 100;
+        updateFormProgressBar(progress);
+    }
+    
+    function updateFormProgressBar(progress) {
+        let progressBar = document.querySelector('.form-progress-bar');
+        
+        if (!progressBar) {
+            progressBar = document.createElement('div');
+            progressBar.className = 'form-progress-bar w-full h-1 bg-gray-200 rounded-full overflow-hidden mb-6';
+            progressBar.innerHTML = '<div class="progress-fill h-full bg-blue-600 transition-all duration-300 rounded-full" style="width: 0%"></div>';
+            
+            contactForm.insertBefore(progressBar, contactForm.firstChild);
+        }
+        
+        const progressFill = progressBar.querySelector('.progress-fill');
+        progressFill.style.width = progress + '%';
+        
+        // Change color based on progress
+        if (progress === 100) {
+            progressFill.classList.remove('bg-blue-600');
+            progressFill.classList.add('bg-green-600');
+        } else {
+            progressFill.classList.remove('bg-green-600');
+            progressFill.classList.add('bg-blue-600');
+        }
+    }
+}
+
+function initContentPreloader() {
+    // Preload critical content and show loading states
+    const criticalSections = ['#hero', '#services', '#benefits'];
+    
+    criticalSections.forEach(selector => {
+        const section = document.querySelector(selector);
+        if (section) {
+            section.classList.add('content-loaded');
+        }
+    });
+}
+
+function initStateManagement() {
+    // Global state management for the application
+    window.AppState = {
+        currentSection: 'hero',
+        formData: {},
+        userPreferences: {
+            reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+            colorScheme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        },
+        
+        updateSection(newSection) {
+            this.currentSection = newSection;
+            document.dispatchEvent(new CustomEvent('sectionChanged', { 
+                detail: { section: newSection }
+            }));
+        },
+        
+        saveFormData(data) {
+            this.formData = { ...this.formData, ...data };
+            localStorage.setItem('ia-solutions-form-data', JSON.stringify(this.formData));
+        },
+        
+        loadFormData() {
+            const saved = localStorage.getItem('ia-solutions-form-data');
+            if (saved) {
+                this.formData = JSON.parse(saved);
+                this.restoreFormData();
+            }
+        },
+        
+        restoreFormData() {
+            Object.keys(this.formData).forEach(key => {
+                const field = document.querySelector(`[name="${key}"]`);
+                if (field && this.formData[key]) {
+                    field.value = this.formData[key];
+                }
+            });
+        }
+    };
+    
+    // Load saved form data
+    window.AppState.loadFormData();
+    
+    // Listen for section changes
+    document.addEventListener('sectionChanged', (e) => {
+        console.log('Section changed to:', e.detail.section);
+    });
+}
+
+function initAdvancedAnimationTriggers() {
+    // More sophisticated animation triggers
+    const advancedObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                const animationDelay = element.dataset.delay || 0;
+                const animationType = element.dataset.animation || 'fadeInUp';
+                
+                setTimeout(() => {
+                    element.classList.add('animate-in', `animation-${animationType}`);
+                    
+                    // Trigger custom events for complex animations
+                    element.dispatchEvent(new CustomEvent('elementVisible', {
+                        detail: { element, animationType }
+                    }));
+                }, animationDelay);
+                
+                advancedObserver.unobserve(element);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    });
+    
+    // Enhanced elements to observe
+    const advancedElements = document.querySelectorAll(
+        '.service-card, .testimonial-card, .benefit-item, .stat-item, .contact-info'
+    );
+    
+    advancedElements.forEach(el => advancedObserver.observe(el));
+}
+
 // Console message for developers
 console.log(`
-🤖 IA Solutions PME - Landing Page v2.0
+🤖 IA Solutions PME - Landing Page v3.0
 Développé avec HTML5, Tailwind CSS et JavaScript Vanilla
 Compatible GitHub Pages - Mobile-First Enhanced
 
 Fonctionnalités incluses:
 ✅ Navigation responsive avec animations avancées
 ✅ Smooth scrolling optimisé
-✅ Calculateur ROI interactif
+✅ Calculateur ROI interactif avec temps réel
 ✅ Validation formulaire en temps réel
 ✅ Animations scroll avec Intersection Observer
 ✅ Menu mobile avec transitions fluides
@@ -1150,6 +2058,18 @@ Fonctionnalités incluses:
 ✅ Parallax effects subtils (desktop only)
 ✅ Performance optimisée (60fps)
 ✅ Accessibility support (prefers-reduced-motion)
+
+🚀 New in v3.0 - Issue #5 Enhancements:
+✅ Smart navigation hide/show on scroll
+✅ Advanced breadcrumb navigation with progress
+✅ Interactive service card overlays
+✅ Advanced ROI calculator with detailed breakdown
+✅ Interactive testimonials carousel with touch
+✅ Enhanced form interactions with autocomplete
+✅ Dynamic content loading and state management
+✅ Progressive form validation with hints
+✅ Advanced animation triggers
+✅ Mobile swipe gestures
 
 🚀 Mobile-First Enhancements v2.0:
 ✅ Touch-optimized interactions
