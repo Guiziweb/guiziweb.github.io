@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solutions IA sur mesure pour PME - Automatisation, efficacité et croissance avec l'intelligence artificielle">
+    <meta name="keywords" content="IA, PME, automatisation, intelligence artificielle, productivité, entreprise">
+    <meta name="author" content="Auto-Entrepreneur IA">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Solutions IA pour PME - Auto-Entrepreneur IA">
+    <meta property="og:description" content="Transformez votre PME avec des solutions IA personnalisées. Automatisation, productivité et croissance garanties.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-domaine.com">
+    <meta property="og:image" content="https://votre-domaine.com/assets/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Solutions IA pour PME - Auto-Entrepreneur IA">
+    <meta name="twitter:description" content="Transformez votre PME avec des solutions IA personnalisées">
+    
+    <title>Solutions IA sur mesure pour PME | Auto-Entrepreneur IA</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter antialiased">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-bold text-blue-600">
+                        <i class="fas fa-robot mr-2"></i>IA Solutions
+                    </h1>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#hero" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Accueil</a>
+                        <a href="#services" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+                        <a href="#benefits" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Avantages</a>
+                        <a href="#testimonials" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Témoignages</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-btn text-gray-700 hover:text-blue-600" aria-expanded="false">
+                        <span class="sr-only">Ouvrir le menu principal</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden mobile-menu hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
+                <a href="#hero" class="nav-link-mobile block px-3 py-2 text-gray-700">Accueil</a>
+                <a href="#services" class="nav-link-mobile block px-3 py-2 text-gray-700">Services</a>
+                <a href="#benefits" class="nav-link-mobile block px-3 py-2 text-gray-700">Avantages</a>
+                <a href="#testimonials" class="nav-link-mobile block px-3 py-2 text-gray-700">Témoignages</a>
+                <a href="#contact" class="nav-link-mobile block px-3 py-2 text-gray-700">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                        Transformez votre PME avec 
+                        <span class="text-blue-600">l'Intelligence Artificielle</span>
+                    </h1>
+                    
+                    <p class="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed">
+                        Solutions IA sur mesure pour automatiser vos processus, optimiser votre productivité 
+                        et accélérer la croissance de votre entreprise de 5 à 50 employés.
+                    </p>
+                    
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#contact" class="cta-button bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center">
+                                <i class="fas fa-rocket mr-2"></i>Démarrer mon projet
+                            </a>
+                            <a href="#services" class="secondary-button border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center">
+                                <i class="fas fa-play mr-2"></i>Découvrir nos services
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="mt-12 grid grid-cols-3 gap-8 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl font-bold text-blue-600">98%</div>
+                            <div class="text-sm text-gray-600">Satisfaction client</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-blue-600">40%</div>
+                            <div class="text-sm text-gray-600">Gain de productivité</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-blue-600">24h</div>
+                            <div class="text-sm text-gray-600">Délai de réponse</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                        <div class="bg-white rounded-lg p-8 text-center">
+                            <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-brain text-3xl text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-4">Consultation gratuite</h3>
+                            <p class="text-gray-600 mb-6">Analysons ensemble le potentiel IA de votre entreprise</p>
+                            <a href="#contact" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors block">
+                                Réserver ma consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Nos Services IA pour PME
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-16">
+                    Des solutions personnalisées pour chaque métier et chaque besoin de votre entreprise
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Automatisation des Processus</h3>
+                    <p class="text-gray-600 mb-6">
+                        Automatisez vos tâches répétitives : facturation, gestion client, 
+                        planification, reporting. Gagnez jusqu'à 40% de temps.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Workflows automatisés</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Intégrations sur mesure</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Formation incluse</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Analyse Prédictive</h3>
+                    <p class="text-gray-600 mb-6">
+                        Anticipez les tendances, optimisez vos stocks, 
+                        prédisez la demande et prenez des décisions éclairées.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Prévisions de vente</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Optimisation stocks</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Tableaux de bord</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Chatbots Intelligents</h3>
+                    <p class="text-gray-600 mb-6">
+                        Assistants virtuels 24/7 pour votre service client, 
+                        qualification de prospects et support technique.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Support 24/7</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Qualification automatique</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Multilingue</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-eye text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Vision Artificielle</h3>
+                    <p class="text-gray-600 mb-6">
+                        Contrôle qualité automatisé, reconnaissance d'objets, 
+                        surveillance intelligente pour optimiser vos opérations.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Contrôle qualité</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Détection anomalies</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Reconnaissance formes</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-database text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Optimisation des Données</h3>
+                    <p class="text-gray-600 mb-6">
+                        Transformez vos données en insights actionables. 
+                        Nettoyage, structuration et exploitation intelligente.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Nettoyage des données</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Structures optimisées</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Insights automatiques</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Formation & Accompagnement</h3>
+                    <p class="text-gray-600 mb-6">
+                        Formation complète de vos équipes et accompagnement 
+                        personnalisé pour une adoption réussie de l'IA.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Formation sur mesure</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Support continu</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Documentation complète</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Pourquoi Choisir l'IA pour Votre PME ?
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    L'intelligence artificielle n'est plus réservée aux grandes entreprises. 
+                    Découvrez comment elle peut transformer votre PME dès aujourd'hui.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <!-- Benefit 1 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-clock text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Économie de Temps Considérable</h3>
+                            <p class="text-gray-600">
+                                Automatisation des tâches répétitives permettant à vos équipes 
+                                de se concentrer sur les activités à forte valeur ajoutée.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefit 2 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-euro-sign text-green-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Réduction des Coûts Opérationnels</h3>
+                            <p class="text-gray-600">
+                                Diminution des erreurs humaines, optimisation des ressources 
+                                et amélioration de l'efficacité globale de vos processus.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefit 3 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-bar text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Amélioration de la Productivité</h3>
+                            <p class="text-gray-600">
+                                Augmentation mesurable de la productivité grâce à des outils IA 
+                                adaptés à votre secteur d'activité et vos besoins spécifiques.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefit 4 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-red-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Avantage Concurrentiel</h3>
+                            <p class="text-gray-600">
+                                Prenez une longueur d'avance sur vos concurrents en intégrant 
+                                des solutions IA innovantes et performantes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ROI Calculator -->
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Calculez Votre Retour sur Investissement</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label for="employees" class="block text-sm font-medium text-gray-700 mb-2">
+                                Nombre d'employés
+                            </label>
+                            <select id="employees" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                <option value="5">5-10 employés</option>
+                                <option value="15">10-20 employés</option>
+                                <option value="30">20-40 employés</option>
+                                <option value="50">40-50 employés</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="sector" class="block text-sm font-medium text-gray-700 mb-2">
+                                Secteur d'activité
+                            </label>
+                            <select id="sector" class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                <option value="commerce">Commerce</option>
+                                <option value="service">Services</option>
+                                <option value="industrie">Industrie</option>
+                                <option value="sante">Santé</option>
+                                <option value="batiment">Bâtiment</option>
+                            </select>
+                        </div>
+                        
+                        <button onclick="calculateROI()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            Calculer mon ROI
+                        </button>
+                        
+                        <div id="roi-result" class="hidden bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">Estimation de vos gains :</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-blue-600" id="monthly-savings">0€</div>
+                                    <div class="text-gray-600">Économies/mois</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-green-600" id="roi-percentage">0%</div>
+                                    <div class="text-gray-600">ROI en 12 mois</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Ils Nous Font Confiance
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Découvrez comment nos clients ont transformé leur entreprise grâce à nos solutions IA
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-700 italic mb-6">
+                        "Grâce à l'automatisation de nos processus de facturation, 
+                        nous avons gagné 15 heures par semaine. Un investissement rentabilisé en 3 mois !"
+                    </blockquote>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Marie Dubois</div>
+                            <div class="text-sm text-gray-600">Directrice, Entreprise de Services</div>
+                            <div class="text-sm text-gray-500">25 employés</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-700 italic mb-6">
+                        "Le chatbot intelligent a révolutionné notre service client. 
+                        Nos clients obtiennent des réponses 24/7 et notre équipe se concentre sur les cas complexes."
+                    </blockquote>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-green-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Pierre Martin</div>
+                            <div class="text-sm text-gray-600">PDG, E-commerce</div>
+                            <div class="text-sm text-gray-500">18 employés</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-700 italic mb-6">
+                        "L'analyse prédictive nous aide à optimiser nos stocks. 
+                        Réduction de 30% des ruptures et amélioration de notre trésorerie."
+                    </blockquote>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-purple-600"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Sophie Leroy</div>
+                            <div class="text-sm text-gray-600">Responsable, Commerce de détail</div>
+                            <div class="text-sm text-gray-500">12 employés</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Client Logos -->
+            <div class="mt-16">
+                <p class="text-center text-gray-500 mb-8">Ils nous font confiance</p>
+                <div class="flex justify-center items-center space-x-8 opacity-50">
+                    <div class="text-2xl font-bold text-gray-400">TechStart</div>
+                    <div class="text-2xl font-bold text-gray-400">InnoServ</div>
+                    <div class="text-2xl font-bold text-gray-400">DataFlow</div>
+                    <div class="text-2xl font-bold text-gray-400">SmartBiz</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+                    Prêt à Transformer Votre Entreprise ?
+                </h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Contactez-nous pour une consultation gratuite et découvrez comment l'IA peut propulser votre PME vers le succès
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-xl">
+                    <h3 class="text-2xl font-bold mb-6">Demandez votre audit IA gratuit</h3>
+                    
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="firstname" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Prénom *
+                                </label>
+                                <input type="text" id="firstname" name="firstname" required 
+                                       class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="lastname" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Nom *
+                                </label>
+                                <input type="text" id="lastname" name="lastname" required 
+                                       class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                Email professionnel *
+                            </label>
+                            <input type="email" id="email" name="email" required 
+                                   class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Téléphone
+                                </label>
+                                <input type="tel" id="phone" name="phone" 
+                                       class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="company" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Entreprise *
+                                </label>
+                                <input type="text" id="company" name="company" required 
+                                       class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="employees-contact" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Nombre d'employés
+                                </label>
+                                <select id="employees-contact" name="employees" 
+                                        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="">Sélectionnez</option>
+                                    <option value="1-5">1-5 employés</option>
+                                    <option value="6-10">6-10 employés</option>
+                                    <option value="11-20">11-20 employés</option>
+                                    <option value="21-50">21-50 employés</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="sector-contact" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Secteur d'activité
+                                </label>
+                                <select id="sector-contact" name="sector" 
+                                        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option value="">Sélectionnez</option>
+                                    <option value="commerce">Commerce</option>
+                                    <option value="service">Services</option>
+                                    <option value="industrie">Industrie</option>
+                                    <option value="sante">Santé</option>
+                                    <option value="batiment">Bâtiment</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="needs" class="block text-sm font-medium text-gray-700 mb-2">
+                                Quels sont vos besoins ? *
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="needs" value="automatisation" class="mr-2">
+                                    <span class="text-sm">Automatisation des processus</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="needs" value="chatbot" class="mr-2">
+                                    <span class="text-sm">Chatbot / Service client</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="needs" value="analyse" class="mr-2">
+                                    <span class="text-sm">Analyse de données</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="needs" value="vision" class="mr-2">
+                                    <span class="text-sm">Vision artificielle</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="needs" value="formation" class="mr-2">
+                                    <span class="text-sm">Formation IA</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                                Décrivez votre projet
+                            </label>
+                            <textarea id="message" name="message" rows="4" 
+                                      placeholder="Décrivez brièvement vos défis actuels et vos objectifs..."
+                                      class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <input type="checkbox" id="privacy" name="privacy" required class="mt-1 mr-3">
+                            <label for="privacy" class="text-sm text-gray-600">
+                                J'accepte que mes données soient utilisées pour me recontacter concernant ma demande. 
+                                <a href="#" class="text-blue-600 underline">Politique de confidentialité</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            <i class="fas fa-paper-plane mr-2"></i>Demander mon audit gratuit
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-6">Contactez-nous directement</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-medium">Email</div>
+                                    <div class="text-gray-300">contact@ia-solutions-pme.fr</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-medium">Téléphone</div>
+                                    <div class="text-gray-300">+33 1 23 45 67 89</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-medium">Adresse</div>
+                                    <div class="text-gray-300">Paris, France<br>Interventions dans toute la France</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-medium">Horaires</div>
+                                    <div class="text-gray-300">Lun-Ven: 9h-18h<br>Réponse sous 24h</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Quick -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold text-white mb-4">Questions fréquentes</h4>
+                        <div class="space-y-3 text-sm">
+                            <div>
+                                <div class="text-blue-400 font-medium">Combien coûte une solution IA ?</div>
+                                <div class="text-gray-300">À partir de 2000€/mois selon vos besoins</div>
+                            </div>
+                            <div>
+                                <div class="text-blue-400 font-medium">Combien de temps pour voir les résultats ?</div>
+                                <div class="text-gray-300">Premiers bénéfices visibles en 30-60 jours</div>
+                            </div>
+                            <div>
+                                <div class="text-blue-400 font-medium">Avez-vous des références ?</div>
+                                <div class="text-gray-300">Oui, plus de 50 PME accompagnées avec succès</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-robot mr-2 text-blue-400"></i>IA Solutions
+                    </h3>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Spécialiste des solutions d'intelligence artificielle pour PME. 
+                        Nous transformons votre entreprise grâce à des outils IA personnalisés et performants.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liens Rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors">Nos Services</a></li>
+                        <li><a href="#benefits" class="text-gray-300 hover:text-white transition-colors">Avantages</a></li>
+                        <li><a href="#testimonials" class="text-gray-300 hover:text-white transition-colors">Témoignages</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Légal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Mentions légales</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Politique de confidentialité</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">CGV</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">RGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="border-gray-700 my-8">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-300 text-sm">
+                    © 2024 IA Solutions PME. Tous droits réservés. | Auto-entrepreneur spécialisé en IA
+                </div>
+                <div class="mt-4 md:mt-0 text-sm text-gray-400">
+                    Conçu avec ❤️ pour les PME françaises
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors hidden z-40">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
