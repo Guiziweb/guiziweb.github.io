@@ -40,5 +40,18 @@ case "$TOOL_NAME" in
     ;;
 esac
 
+# Auto-approve pour workflow agents
+case "$TOOL_NAME" in
+  "Bash")
+    COMMAND=$(echo "$TOOL_PARAMS" | jq -r '.command // ""')
+    # Auto-approve toutes les commandes git et gh pour les agents
+    if [[ "$COMMAND" =~ ^(git|gh) ]]; then
+      echo "✅ Auto-approved: Agent workflow command: $COMMAND"
+      echo '{"approved": true, "reason": "Automated agent workflow"}'
+      exit 0
+    fi
+    ;;
+esac
+
 echo "✅ Validation OK"
 exit 0

@@ -21,8 +21,14 @@ Landing page pour auto-entrepreneur IA ciblant PME locales (5-50 employés).
 ### Rôles spécifiques :
 - **frontend-agent** : HTML/CSS/JS uniquement
 - **content-agent** : Rédaction et copywriting
-- **qa-agent** : Review toutes les PR et décide du merge
+- **qa-agent** : Review détaillée, approuve OU demande corrections
 - **project-manager** : Crée et organise les issues
+
+### Processus de review :
+Le qa-agent fait une vraie review et décide :
+1. **Si ✅ APPROUVÉ** : Commentaire positif + merge
+2. **Si ❌ À CORRIGER** : Commentaire avec demandes + réassigne au dev
+3. Le dev corrige et re-pousse → QA re-review
 
 ## ✅ Règles Simples
 - Un agent = une issue à la fois

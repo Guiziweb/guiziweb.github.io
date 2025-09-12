@@ -518,20 +518,195 @@ textarea:focus {
     color: white;
 }
 
-/* Responsive Enhancements */
-@media (max-width: 768px) {
-    .service-card,
-    .testimonial-card {
-        margin-bottom: 1rem;
+/* Enhanced Mobile-First Responsive Design */
+
+/* Mobile First - Base Styles (320px+) */
+@media screen and (max-width: 639px) {
+    /* Touch-friendly interactions */
+    .touch-manipulation {
+        touch-action: manipulation;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
     }
     
+    /* Mobile navigation enhancements */
+    .mobile-menu-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Service cards mobile optimization */
+    .service-card,
+    .testimonial-card {
+        margin-bottom: 1.5rem;
+        transform: none !important; /* Disable complex transforms on mobile */
+    }
+    
+    /* Mobile typography scale */
     .hero-title {
         font-size: 2rem;
         line-height: 1.2;
+        margin-bottom: 1rem;
     }
     
     .hero-subtitle {
         font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    /* Mobile spacing adjustments */
+    section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    /* Form enhancements for mobile */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+        font-size: 16px; /* Prevent zoom on iOS */
+        line-height: 1.5;
+        padding: 12px 16px;
+    }
+    
+    /* Touch-friendly checkboxes */
+    input[type="checkbox"] {
+        min-width: 20px;
+        min-height: 20px;
+    }
+    
+    /* Mobile buttons */
+    .btn,
+    button {
+        min-height: 44px;
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+    
+    /* Reduce animation complexity on mobile */
+    * {
+        animation-duration: 0.3s !important;
+    }
+}
+
+/* Small Mobile (320px - 374px) */
+@media screen and (max-width: 374px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Extra small text adjustments */
+    h1 {
+        font-size: 1.75rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    h3 {
+        font-size: 1.25rem !important;
+    }
+    
+    /* Tighter spacing for small screens */
+    .space-y-6 > * + * {
+        margin-top: 1rem !important;
+    }
+}
+
+/* Large Mobile (375px - 639px) */
+@media screen and (min-width: 375px) and (max-width: 639px) {
+    /* Slightly larger touch targets */
+    .touch-manipulation {
+        min-height: 48px;
+    }
+    
+    /* Better spacing */
+    .p-6 {
+        padding: 1.5rem !important;
+    }
+}
+
+/* Tablet Portrait (640px - 767px) */
+@media screen and (min-width: 640px) and (max-width: 767px) {
+    /* Service cards in 2 columns */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Form in single column but wider */
+    .form-grid {
+        grid-template-columns: 1fr;
+        max-width: 32rem;
+        margin: 0 auto;
+    }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Navigation adjustments */
+    .nav-link {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    /* Hero section balance */
+    .hero-content {
+        max-width: none;
+    }
+    
+    /* Service cards 3 columns on tablet landscape */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Contact form stays single column */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/* Desktop (1024px+) */
+@media screen and (min-width: 1024px) {
+    /* Enhanced hover effects for desktop */
+    .desktop-hover:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Desktop navigation enhancements */
+    .nav-link:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* Full desktop grid */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    /* Contact form side by side */
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+/* High DPI Displays */
+@media screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Sharper borders */
+    .border {
+        border-width: 0.5px;
+    }
+    
+    /* Crisp shadows */
+    .shadow-lg {
+        box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.1);
     }
 }
 

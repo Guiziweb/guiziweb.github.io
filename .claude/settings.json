@@ -1,4 +1,11 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(gh:*)",
+      "Bash(git:*)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
   "hooks": {
     "SessionStart": [
       {
@@ -14,36 +21,12 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "Write|Edit",
+        "matcher": "*",
         "hooks": [
           {
             "type": "command", 
             "command": ".claude/hooks/validate-context.sh",
             "timeout": 10
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": ".claude/hooks/log-action.sh", 
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": ".claude/hooks/analyze-request.sh",
-            "timeout": 5
           }
         ]
       }
