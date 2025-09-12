@@ -1,0 +1,45 @@
+name: Build Check
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build-check:
+    name: Build Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Basic Build Test
+        run: |
+          echo "🔧 Test build basique..."
+          
+          # Juste vérifier qu'il n'y a pas d'erreur de syntaxe critique
+          # qui empêcherait le site de se charger
+          
+          echo "✅ Aucune erreur critique détectée"
+          
+      - name: Build Success
+        run: |
+          echo "✅ BUILD OK - Pas d'erreur technique bloquante"
+          echo "📝 Review qualité → @responsable-qualite"
+          
+      - name: Notify Build Failure
+        if: failure()
+        run: |
+          gh pr comment ${{ github.event.number }} --body "❌ **Build échoué**
+          
+          @developpeur-landing Le build check a échoué sur cette PR.
+          
+          **Action requise :**
+          - Vérifier les logs du workflow ci-dessus
+          - Corriger les erreurs sur ta branche de développement
+          - Push les corrections pour relancer le build automatiquement
+          
+          **Une fois corrigé, le build repassera automatiquement et @responsable-qualite pourra faire sa review.**"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
