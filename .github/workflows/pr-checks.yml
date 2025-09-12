@@ -14,14 +14,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Basic Build Test
+      - name: GitHub Pages Build Test
         run: |
-          echo "🔧 Test build basique..."
+          echo "🚀 Test de build GitHub Pages..."
           
-          # Juste vérifier qu'il n'y a pas d'erreur de syntaxe critique
-          # qui empêcherait le site de se charger
+          # Simuler ce que fait GitHub Pages : upload et déploiement
+          # On utilise la même action que le vrai déploiement
           
-          echo "✅ Aucune erreur critique détectée"
+      - name: Setup Pages (test)
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact (test) 
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+          
+      - name: Build Success Test
+        run: |
+          echo "✅ GitHub Pages build simulation réussie"
           
       - name: Build Success
         run: |
