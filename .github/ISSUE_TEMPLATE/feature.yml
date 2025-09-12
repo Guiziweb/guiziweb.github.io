@@ -1,0 +1,70 @@
+name: 🚀 Feature Request
+description: Nouvelle fonctionnalité pour la landing page
+title: "[FEATURE] "
+labels: ["feature", "auto-dev"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🤖 Cette issue sera automatiquement traitée par Claude Dev Bot
+
+  - type: dropdown
+    id: agent-type
+    attributes:
+      label: Type de travail
+      description: Quel agent doit traiter cette demande ?
+      options:
+        - 🎨 Frontend (HTML/CSS/JS)
+        - ✏️ Content (Rédaction/Copy)
+        - 🔍 QA (Tests/Bug fix)
+        - 📋 Epic (Projet complet)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorité
+      options:
+        - 🔴 Critique
+        - 🟡 Haute  
+        - 🟢 Normale
+        - 🔵 Basse
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description détaillée
+      description: Que voulez-vous exactement ?
+      placeholder: |
+        Décrivez précisément la fonctionnalité:
+        - Quoi: Qu'est-ce qui doit être fait
+        - Pourquoi: Objectif/bénéfice attendu  
+        - Où: Quelle section de la landing page
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critères d'acceptation
+      description: Comment savoir que c'est terminé ?
+      placeholder: |
+        - [ ] Critère 1
+        - [ ] Critère 2
+        - [ ] Tests passent
+
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Contraintes techniques (rappel)
+      options:
+        - label: Compatible GitHub Pages
+          required: true
+        - label: Utilise uniquement Tailwind CSS
+          required: true
+        - label: Responsive mobile-first
+          required: true
+        - label: Respecte le contexte projet
