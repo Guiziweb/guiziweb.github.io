@@ -13,6 +13,8 @@ echo "🔍 Validation contexte pour: $TOOL_NAME"
 case "$TOOL_NAME" in
   "Write"|"Edit")
     FILE_PATH=$(echo "$TOOL_PARAMS" | jq -r '.file_path // empty')
+    CONTENT=$(echo "$TOOL_PARAMS" | jq -r '.content // .new_string // empty')
+    
     if [[ "$FILE_PATH" == *.jsx || "$FILE_PATH" == *.tsx ]]; then
       echo "❌ ERREUR: React/frameworks JS interdits (GitHub Pages)"
       exit 1
@@ -21,6 +23,13 @@ case "$TOOL_NAME" in
     if [[ "$FILE_PATH" == *.scss || "$FILE_PATH" == *.sass ]]; then
       echo "❌ ERREUR: Preprocesseurs CSS interdits (GitHub Pages)"
       exit 1
+    fi
+    
+    # Validation qualité JavaScript
+    if [[ "$FILE_PATH" == *.js && "$CONTENT" != "" ]]; then
+      if [[ "$CONTENT" =~ "jQuery"|"lodash"|"moment" ]]; then
+        echo "⚠️  ATTENTION: Éviter les librairies lourdes - privilégier vanilla JS"
+      fi
     fi
     
     # Vérifie mention Tailwind obligatoire pour CSS
@@ -34,8 +43,8 @@ case "$TOOL_NAME" in
     
   "Task")
     AGENT_TYPE=$(echo "$TOOL_PARAMS" | jq -r '.subagent_type // empty')
-    if [[ "$AGENT_TYPE" != "frontend-agent" && "$AGENT_TYPE" != "content-agent" && "$AGENT_TYPE" != "qa-agent" && "$AGENT_TYPE" != "project-manager" ]]; then
-      echo "⚠️  Agent non reconnu: $AGENT_TYPE"
+    if [[ "$AGENT_TYPE" != "chef-projet" && "$AGENT_TYPE" != "developpeur-landing" && "$AGENT_TYPE" != "responsable-qualite" ]]; then
+      echo "⚠️  Agent non reconnu: $AGENT_TYPE (agents disponibles: chef-projet, developpeur-landing, responsable-qualite)"
     fi
     ;;
 esac

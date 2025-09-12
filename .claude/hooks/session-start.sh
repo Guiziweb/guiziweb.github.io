@@ -22,9 +22,10 @@ if command -v gh &> /dev/null; then
     fi
 fi
 
-# Vérifie l'agent project-manager
-if [ -f ".claude/agents/project-manager.md" ]; then
-    echo "🤖 Agent orchestrateur disponible"
+# Vérifie les agents disponibles
+AGENTS_COUNT=$(ls .claude/agents/*.md 2>/dev/null | wc -l | tr -d ' ')
+if [ "$AGENTS_COUNT" -gt 0 ]; then
+    echo "🤖 Agents disponibles: $AGENTS_COUNT (chef-projet, developpeur-landing, responsable-qualite)"
 fi
 
 echo "✅ Session prête - Contexte chargé automatiquement"

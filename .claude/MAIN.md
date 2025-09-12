@@ -19,21 +19,20 @@ Landing page pour auto-entrepreneur IA ciblant PME locales (5-50 employés).
 5. **Finaliser** : QA review → merge → issue se ferme automatiquement via "Closes #"
 
 ### Rôles spécifiques :
-- **frontend-agent** : HTML/CSS/JS uniquement
-- **content-agent** : Rédaction et copywriting
-- **qa-agent** : Review détaillée, approuve OU demande corrections
-- **project-manager** : Crée et organise les issues
+- **chef-projet** : Analyse demandes et crée tickets GitHub détaillés
+- **developpeur-landing** : Implémentation code sur branches feature
+- **responsable-qualite** : Review MR, valide qualité, merge
 
 ### Processus de review :
-Le qa-agent fait une vraie review et décide :
-1. **Si ✅ APPROUVÉ** : Commentaire positif + merge
-2. **Si ❌ À CORRIGER** : Commentaire avec demandes + réassigne au dev
-3. Le dev corrige et re-pousse → QA re-review
+Le responsable-qualite fait une vraie review et décide :
+1. **Si ✅ APPROUVÉ** : `gh pr review --approve` + merge
+2. **Si ❌ À CORRIGER** : Commentaire avec demandes + request changes
+3. Le dev corrige et re-pousse → Review automatiquement relancée
 
 ## ✅ Règles Simples
 - Un agent = une issue à la fois
 - Toujours créer une branche feature
 - "Closes #X" dans la PR pour auto-fermeture
-- QA-agent a le dernier mot sur les merges
+- responsable-qualite a le dernier mot sur les merges
 
 **C'est TOUT. Pas besoin de plus.**
