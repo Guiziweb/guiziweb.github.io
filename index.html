@@ -50,223 +50,276 @@
 </head>
 <body class="font-inter antialiased">
     
-    <!-- Enhanced Navigation with Design System -->
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-xl shadow-soft border-b border-secondary-200/50" id="navbar">
+    <!-- Enhanced Mobile-First Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-xl shadow-soft border-b border-secondary-200/50 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
+            <div class="flex justify-between items-center py-3 sm:py-4">
+                <!-- Logo - Optimized for mobile -->
                 <div class="flex-shrink-0">
-                    <h1 class="text-2xl font-bold text-primary-600 gradient-text">
-                        <i class="fas fa-robot mr-2 animate-float"></i>IA Solutions
+                    <h1 class="text-xl sm:text-2xl font-bold text-primary-600 gradient-text">
+                        <i class="fas fa-robot mr-1 sm:mr-2 animate-float text-lg sm:text-xl"></i>
+                        <span class="hidden xs:inline">IA Solutions</span>
+                        <span class="xs:hidden">IA</span>
                     </h1>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#hero" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Accueil</a>
-                        <a href="#services" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Services</a>
-                        <a href="#benefits" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Avantages</a>
-                        <a href="#testimonials" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Témoignages</a>
-                        <a href="#contact" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Contact</a>
+                    <div class="ml-10 flex items-baseline space-x-6 lg:space-x-8">
+                        <a href="#hero" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary text-sm lg:text-base">Accueil</a>
+                        <a href="#services" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary text-sm lg:text-base">Services</a>
+                        <a href="#benefits" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary text-sm lg:text-base">Avantages</a>
+                        <a href="#testimonials" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary text-sm lg:text-base">Témoignages</a>
+                        <a href="#contact" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary text-sm lg:text-base">Contact</a>
                     </div>
                 </div>
                 
-                <!-- Mobile menu button -->
+                <!-- Mobile menu button - Touch-friendly -->
                 <div class="md:hidden">
-                    <button type="button" class="mobile-menu-btn text-gray-700 hover:text-blue-600" aria-expanded="false">
+                    <button type="button" class="mobile-menu-btn p-2 -mr-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 touch-manipulation" aria-expanded="false" aria-label="Toggle navigation menu">
                         <span class="sr-only">Ouvrir le menu principal</span>
-                        <i class="fas fa-bars text-xl"></i>
+                        <i class="fas fa-bars text-xl transition-transform duration-300"></i>
                     </button>
                 </div>
             </div>
         </div>
         
-        <!-- Mobile Menu -->
+        <!-- Enhanced Mobile Menu with Better Touch Targets -->
         <div class="md:hidden mobile-menu hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
-                <a href="#hero" class="nav-link-mobile block px-3 py-2 text-gray-700">Accueil</a>
-                <a href="#services" class="nav-link-mobile block px-3 py-2 text-gray-700">Services</a>
-                <a href="#benefits" class="nav-link-mobile block px-3 py-2 text-gray-700">Avantages</a>
-                <a href="#testimonials" class="nav-link-mobile block px-3 py-2 text-gray-700">Témoignages</a>
-                <a href="#contact" class="nav-link-mobile block px-3 py-2 text-gray-700">Contact</a>
+            <div class="px-2 pt-2 pb-4 space-y-1 bg-white shadow-lg border-t border-gray-100">
+                <a href="#hero" class="nav-link-mobile flex items-center px-4 py-3 text-gray-700 text-base font-medium rounded-lg mx-2 touch-manipulation">
+                    <i class="fas fa-home w-5 text-center mr-3 text-blue-600"></i>
+                    Accueil
+                </a>
+                <a href="#services" class="nav-link-mobile flex items-center px-4 py-3 text-gray-700 text-base font-medium rounded-lg mx-2 touch-manipulation">
+                    <i class="fas fa-cogs w-5 text-center mr-3 text-blue-600"></i>
+                    Services
+                </a>
+                <a href="#benefits" class="nav-link-mobile flex items-center px-4 py-3 text-gray-700 text-base font-medium rounded-lg mx-2 touch-manipulation">
+                    <i class="fas fa-chart-line w-5 text-center mr-3 text-blue-600"></i>
+                    Avantages
+                </a>
+                <a href="#testimonials" class="nav-link-mobile flex items-center px-4 py-3 text-gray-700 text-base font-medium rounded-lg mx-2 touch-manipulation">
+                    <i class="fas fa-star w-5 text-center mr-3 text-blue-600"></i>
+                    Témoignages
+                </a>
+                <a href="#contact" class="nav-link-mobile flex items-center px-4 py-3 text-gray-700 text-base font-medium rounded-lg mx-2 touch-manipulation">
+                    <i class="fas fa-envelope w-5 text-center mr-3 text-blue-600"></i>
+                    Contact
+                </a>
+                <!-- Mobile CTA -->
+                <div class="px-4 pt-3 border-t border-gray-100 mt-3">
+                    <a href="#contact" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold text-center block hover:bg-blue-700 transition-colors touch-manipulation">
+                        <i class="fas fa-rocket mr-2"></i>Consultation Gratuite
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <!-- Enhanced Mobile-First Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-16 sm:pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-20">
             <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
-                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
+                <!-- Main Content - Mobile Optimized -->
+                <div class="text-center lg:col-span-6 lg:text-left lg:max-w-2xl">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                         Transformez votre PME avec 
-                        <span class="text-blue-600">l'Intelligence Artificielle</span>
+                        <span class="text-blue-600 block sm:inline">l'Intelligence Artificielle</span>
                     </h1>
                     
-                    <p class="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed">
+                    <p class="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
                         Solutions IA sur mesure pour automatiser vos processus, optimiser votre productivité 
                         et accélérer la croissance de votre entreprise de 5 à 50 employés.
                     </p>
                     
-                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#contact" class="btn btn-primary shadow-glow hover:shadow-glow-lg transform hover:scale-105 transition-all duration-300 animate-pulse-subtle focus-primary">
-                                <i class="fas fa-rocket mr-2"></i>Démarrer mon projet
-                            </a>
-                            <a href="#services" class="btn btn-secondary border-2 border-primary-600 text-primary-600 hover:bg-primary-50 hover:shadow-soft-lg focus-primary">
-                                <i class="fas fa-play mr-2"></i>Découvrir nos services
-                            </a>
-                        </div>
+                    <!-- Mobile-First CTA Buttons -->
+                    <div class="space-y-4 sm:space-y-0 sm:flex sm:justify-center sm:space-x-4 lg:justify-start mb-10 lg:mb-12">
+                        <a href="#contact" class="w-full sm:w-auto inline-flex justify-center items-center px-6 py-4 bg-blue-600 text-white text-base font-semibold rounded-lg shadow-glow hover:bg-blue-700 hover:shadow-glow-lg transform hover:scale-105 transition-all duration-300 animate-pulse-subtle focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 touch-manipulation">
+                            <i class="fas fa-rocket mr-2"></i>Démarrer mon projet
+                        </a>
+                        <a href="#services" class="w-full sm:w-auto inline-flex justify-center items-center px-6 py-4 border-2 border-blue-600 text-blue-600 text-base font-semibold rounded-lg hover:bg-blue-50 hover:shadow-soft-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 touch-manipulation">
+                            <i class="fas fa-play mr-2"></i>Découvrir nos services
+                        </a>
                     </div>
                     
-                    <!-- Stats -->
-                    <div class="mt-12 grid grid-cols-3 gap-8 text-center lg:text-left stats">
-                        <div class="stat-item opacity-0 translate-y-4">
-                            <div class="text-2xl font-bold text-blue-600 stat-number" data-target="98">0%</div>
-                            <div class="text-sm text-gray-600">Satisfaction client</div>
+                    <!-- Mobile-Optimized Stats -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 stats">
+                        <div class="stat-item opacity-0 translate-y-4 text-center lg:text-left p-4 sm:p-0">
+                            <div class="text-2xl sm:text-3xl font-bold text-blue-600 stat-number" data-target="98">0%</div>
+                            <div class="text-sm sm:text-base text-gray-600 mt-1">Satisfaction client</div>
                         </div>
-                        <div class="stat-item opacity-0 translate-y-4">
-                            <div class="text-2xl font-bold text-blue-600 stat-number" data-target="40">0%</div>
-                            <div class="text-sm text-gray-600">Gain de productivité</div>
+                        <div class="stat-item opacity-0 translate-y-4 text-center lg:text-left p-4 sm:p-0">
+                            <div class="text-2xl sm:text-3xl font-bold text-blue-600 stat-number" data-target="40">0%</div>
+                            <div class="text-sm sm:text-base text-gray-600 mt-1">Gain de productivité</div>
                         </div>
-                        <div class="stat-item opacity-0 translate-y-4">
-                            <div class="text-2xl font-bold text-blue-600 stat-number" data-target="24">0h</div>
-                            <div class="text-sm text-gray-600">Délai de réponse</div>
+                        <div class="stat-item opacity-0 translate-y-4 text-center lg:text-left p-4 sm:p-0">
+                            <div class="text-2xl sm:text-3xl font-bold text-blue-600 stat-number" data-target="24">0h</div>
+                            <div class="text-sm sm:text-base text-gray-600 mt-1">Délai de réponse</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
-                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                        <div class="bg-white rounded-lg p-8 text-center">
-                            <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i class="fas fa-brain text-3xl text-blue-600"></i>
+                <!-- CTA Card - Mobile Enhanced -->
+                <div class="mt-10 lg:mt-0 lg:col-span-6 lg:flex lg:items-center lg:justify-end">
+                    <div class="relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-lg">
+                        <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                            <div class="w-20 h-20 sm:w-24 sm:h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-brain text-2xl sm:text-3xl text-blue-600"></i>
                             </div>
-                            <h3 class="text-xl font-semibold mb-4">Consultation gratuite</h3>
-                            <p class="text-gray-600 mb-6">Analysons ensemble le potentiel IA de votre entreprise</p>
-                            <a href="#contact" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors block">
-                                Réserver ma consultation
+                            <h3 class="text-xl sm:text-2xl font-semibold mb-4 text-gray-900">Consultation gratuite</h3>
+                            <p class="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">Analysons ensemble le potentiel IA de votre entreprise</p>
+                            <a href="#contact" class="w-full bg-blue-600 text-white py-3 sm:py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors block text-base touch-manipulation">
+                                <i class="fas fa-calendar-alt mr-2"></i>Réserver ma consultation
                             </a>
                         </div>
+                        <!-- Floating elements for visual interest -->
+                        <div class="absolute -top-4 -left-4 w-8 h-8 bg-blue-200 rounded-full opacity-60 animate-pulse-subtle"></div>
+                        <div class="absolute -bottom-4 -right-4 w-6 h-6 bg-indigo-200 rounded-full opacity-60 animate-bounce-subtle"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <!-- Enhanced Mobile-First Services Section -->
+    <section id="services" class="py-16 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <!-- Section Header - Mobile Optimized -->
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                     Nos Services IA pour PME
                 </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-16">
+                <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
                     Des solutions personnalisées pour chaque métier et chaque besoin de votre entreprise
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 - Enhanced -->
-                <div class="card card-hover group relative p-8 overflow-hidden animate-fade-in-up stagger-1">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-600 to-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                    <div class="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors duration-300">
-                        <i class="fas fa-cogs text-2xl text-primary-600 group-hover:scale-110 transition-transform duration-300"></i>
+            <!-- Mobile-First Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Service 1 - Mobile Enhanced -->
+                <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden">
+                    <!-- Mobile-friendly top accent -->
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    
+                    <!-- Icon - Mobile optimized -->
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                        <i class="fas fa-cogs text-xl sm:text-2xl text-blue-600 group-hover:scale-110 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-secondary-900">Automatisation des Processus</h3>
-                    <p class="text-secondary-600 mb-6 leading-relaxed">
+                    
+                    <!-- Title - Mobile typography -->
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-900">Automatisation des Processus</h3>
+                    
+                    <!-- Description - Mobile optimized -->
+                    <p class="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                         Automatisez vos tâches répétitives : facturation, gestion client, 
                         planification, reporting. Gagnez jusqu'à 40% de temps.
                     </p>
-                    <ul class="space-y-2 text-sm text-secondary-600">
-                        <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3 flex-shrink-0"></i>Workflows automatisés</li>
-                        <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3 flex-shrink-0"></i>Intégrations sur mesure</li>
-                        <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3 flex-shrink-0"></i>Formation incluse</li>
+                    
+                    <!-- Features - Mobile friendly -->
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i>
+                            <span>Workflows automatisés</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i>
+                            <span>Intégrations sur mesure</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i>
+                            <span>Formation incluse</span>
+                        </li>
                     </ul>
                 </div>
                 
-                <!-- Service 2 -->
-                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-chart-line text-2xl text-green-600"></i>
+                <!-- Service 2 - Mobile Enhanced -->
+                <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-600 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-green-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                        <i class="fas fa-chart-line text-xl sm:text-2xl text-green-600 group-hover:scale-110 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Analyse Prédictive</h3>
-                    <p class="text-gray-600 mb-6">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-900">Analyse Prédictive</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                         Anticipez les tendances, optimisez vos stocks, 
                         prédisez la demande et prenez des décisions éclairées.
                     </p>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Prévisions de vente</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Optimisation stocks</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Tableaux de bord</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Prévisions de vente</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Optimisation stocks</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Tableaux de bord</span></li>
                     </ul>
                 </div>
                 
-                <!-- Service 3 -->
-                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-comments text-2xl text-purple-600"></i>
+                <!-- Service 3 - Mobile Enhanced -->
+                <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-purple-200 transition-colors duration-300">
+                        <i class="fas fa-comments text-xl sm:text-2xl text-purple-600 group-hover:scale-110 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Chatbots Intelligents</h3>
-                    <p class="text-gray-600 mb-6">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-900">Chatbots Intelligents</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                         Assistants virtuels 24/7 pour votre service client, 
                         qualification de prospects et support technique.
                     </p>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Support 24/7</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Qualification automatique</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Multilingue</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Support 24/7</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Qualification automatique</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Multilingue</span></li>
                     </ul>
                 </div>
                 
-                <!-- Service 4 -->
-                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-                    <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-eye text-2xl text-red-600"></i>
+                <!-- Service 4 - Mobile Enhanced -->
+                <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-red-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-red-200 transition-colors duration-300">
+                        <i class="fas fa-eye text-xl sm:text-2xl text-red-600 group-hover:scale-110 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Vision Artificielle</h3>
-                    <p class="text-gray-600 mb-6">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-900">Vision Artificielle</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                         Contrôle qualité automatisé, reconnaissance d'objets, 
                         surveillance intelligente pour optimiser vos opérations.
                     </p>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Contrôle qualité</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Détection anomalies</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Reconnaissance formes</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Contrôle qualité</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Détection anomalies</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Reconnaissance formes</span></li>
                     </ul>
                 </div>
                 
-                <!-- Service 5 -->
-                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-                    <div class="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-database text-2xl text-yellow-600"></i>
+                <!-- Service 5 - Mobile Enhanced -->
+                <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-600 to-yellow-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
+                        <i class="fas fa-database text-xl sm:text-2xl text-yellow-600 group-hover:scale-110 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Optimisation des Données</h3>
-                    <p class="text-gray-600 mb-6">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-900">Optimisation des Données</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                         Transformez vos données en insights actionables. 
                         Nettoyage, structuration et exploitation intelligente.
                     </p>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Nettoyage des données</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Structures optimisées</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Insights automatiques</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Nettoyage des données</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Structures optimisées</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Insights automatiques</span></li>
                     </ul>
                 </div>
                 
-                <!-- Service 6 -->
-                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-                    <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-graduation-cap text-2xl text-indigo-600"></i>
+                <!-- Service 6 - Mobile Enhanced -->
+                <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 group relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-600 to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-indigo-200 transition-colors duration-300">
+                        <i class="fas fa-graduation-cap text-xl sm:text-2xl text-indigo-600 group-hover:scale-110 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Formation & Accompagnement</h3>
-                    <p class="text-gray-600 mb-6">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-900">Formation & Accompagnement</h3>
+                    <p class="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                         Formation complète de vos équipes et accompagnement 
                         personnalisé pour une adoption réussie de l'IA.
                     </p>
                     <ul class="space-y-2 text-sm text-gray-600">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Formation sur mesure</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Support continu</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Documentation complète</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Formation sur mesure</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Support continu</span></li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3 flex-shrink-0 text-xs"></i><span>Documentation complète</span></li>
                     </ul>
                 </div>
             </div>
@@ -506,38 +559,42 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-900">
+    <!-- Enhanced Mobile-First Contact Section -->
+    <section id="contact" class="py-16 sm:py-20 bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <!-- Section Header - Mobile Optimized -->
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
                     Prêt à Transformer Votre Entreprise ?
                 </h2>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
                     Contactez-nous pour une consultation gratuite et découvrez comment l'IA peut propulser votre PME vers le succès
                 </p>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Contact Form -->
-                <div class="bg-white p-8 rounded-xl">
-                    <h3 class="text-2xl font-bold mb-6">Demandez votre audit IA gratuit</h3>
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Enhanced Mobile-First Contact Form -->
+                <div class="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 order-2 lg:order-1">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-6 text-gray-900">Demandez votre audit IA gratuit</h3>
                     
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-5 sm:space-y-6">
+                        <!-- Mobile-first name fields -->
+                        <div class="space-y-5 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4">
                             <div>
                                 <label for="firstname" class="block text-sm font-medium text-gray-700 mb-2">
                                     Prénom *
                                 </label>
                                 <input type="text" id="firstname" name="firstname" required 
-                                       class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                       class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 touch-manipulation"
+                                       placeholder="Votre prénom">
                             </div>
                             <div>
                                 <label for="lastname" class="block text-sm font-medium text-gray-700 mb-2">
                                     Nom *
                                 </label>
                                 <input type="text" id="lastname" name="lastname" required 
-                                       class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                       class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 touch-manipulation"
+                                       placeholder="Votre nom">
                             </div>
                         </div>
                         
@@ -546,33 +603,38 @@
                                 Email professionnel *
                             </label>
                             <input type="email" id="email" name="email" required 
-                                   class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                   class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 touch-manipulation"
+                                   placeholder="votre@entreprise.com">
                         </div>
                         
-                        <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Mobile-optimized contact fields -->
+                        <div class="space-y-5 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4">
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
                                     Téléphone
                                 </label>
                                 <input type="tel" id="phone" name="phone" 
-                                       class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                       class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 touch-manipulation"
+                                       placeholder="06 12 34 56 78">
                             </div>
                             <div>
                                 <label for="company" class="block text-sm font-medium text-gray-700 mb-2">
                                     Entreprise *
                                 </label>
                                 <input type="text" id="company" name="company" required 
-                                       class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                       class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 touch-manipulation"
+                                       placeholder="Nom de votre entreprise">
                             </div>
                         </div>
                         
-                        <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Touch-friendly selects -->
+                        <div class="space-y-5 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4">
                             <div>
                                 <label for="employees-contact" class="block text-sm font-medium text-gray-700 mb-2">
                                     Nombre d'employés
                                 </label>
                                 <select id="employees-contact" name="employees" 
-                                        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 touch-manipulation appearance-none bg-white">
                                     <option value="">Sélectionnez</option>
                                     <option value="1-5">1-5 employés</option>
                                     <option value="6-10">6-10 employés</option>
@@ -585,7 +647,7 @@
                                     Secteur d'activité
                                 </label>
                                 <select id="sector-contact" name="sector" 
-                                        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 touch-manipulation appearance-none bg-white">
                                     <option value="">Sélectionnez</option>
                                     <option value="commerce">Commerce</option>
                                     <option value="service">Services</option>
@@ -597,120 +659,135 @@
                             </div>
                         </div>
                         
+                        <!-- Mobile-optimized checkboxes -->
                         <div>
-                            <label for="needs" class="block text-sm font-medium text-gray-700 mb-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-3">
                                 Quels sont vos besoins ? *
                             </label>
-                            <div class="space-y-2">
-                                <label class="flex items-center">
-                                    <input type="checkbox" name="needs" value="automatisation" class="mr-2">
-                                    <span class="text-sm">Automatisation des processus</span>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer touch-manipulation">
+                                    <input type="checkbox" name="needs" value="automatisation" class="mr-3 w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <span class="text-sm text-gray-700">Automatisation des processus</span>
                                 </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" name="needs" value="chatbot" class="mr-2">
-                                    <span class="text-sm">Chatbot / Service client</span>
+                                <label class="flex items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer touch-manipulation">
+                                    <input type="checkbox" name="needs" value="chatbot" class="mr-3 w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <span class="text-sm text-gray-700">Chatbot / Service client</span>
                                 </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" name="needs" value="analyse" class="mr-2">
-                                    <span class="text-sm">Analyse de données</span>
+                                <label class="flex items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer touch-manipulation">
+                                    <input type="checkbox" name="needs" value="analyse" class="mr-3 w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <span class="text-sm text-gray-700">Analyse de données</span>
                                 </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" name="needs" value="vision" class="mr-2">
-                                    <span class="text-sm">Vision artificielle</span>
+                                <label class="flex items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer touch-manipulation">
+                                    <input type="checkbox" name="needs" value="vision" class="mr-3 w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <span class="text-sm text-gray-700">Vision artificielle</span>
                                 </label>
-                                <label class="flex items-center">
-                                    <input type="checkbox" name="needs" value="formation" class="mr-2">
-                                    <span class="text-sm">Formation IA</span>
+                                <label class="flex items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer touch-manipulation">
+                                    <input type="checkbox" name="needs" value="formation" class="mr-3 w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                                    <span class="text-sm text-gray-700">Formation IA</span>
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- Mobile-optimized textarea -->
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
                                 Décrivez votre projet
                             </label>
                             <textarea id="message" name="message" rows="4" 
                                       placeholder="Décrivez brièvement vos défis actuels et vos objectifs..."
-                                      class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                      class="w-full border-2 border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-y touch-manipulation"></textarea>
                         </div>
                         
+                        <!-- Touch-friendly privacy checkbox -->
                         <div class="flex items-start">
-                            <input type="checkbox" id="privacy" name="privacy" required class="mt-1 mr-3">
-                            <label for="privacy" class="text-sm text-gray-600">
+                            <input type="checkbox" id="privacy" name="privacy" required 
+                                   class="mt-1 mr-3 w-4 h-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded touch-manipulation">
+                            <label for="privacy" class="text-sm text-gray-600 leading-relaxed">
                                 J'accepte que mes données soient utilisées pour me recontacter concernant ma demande. 
-                                <a href="#" class="text-blue-600 underline">Politique de confidentialité</a>
+                                <a href="#" class="text-blue-600 underline hover:text-blue-700">Politique de confidentialité</a>
                             </label>
                         </div>
                         
-                        <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        <!-- Touch-optimized submit button -->
+                        <button type="submit" class="w-full bg-blue-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-base touch-manipulation shadow-lg hover:shadow-xl">
                             <i class="fas fa-paper-plane mr-2"></i>Demander mon audit gratuit
                         </button>
                     </form>
                 </div>
                 
-                <!-- Contact Information -->
-                <div class="space-y-8">
+                <!-- Enhanced Mobile-First Contact Information -->
+                <div class="space-y-6 sm:space-y-8 order-1 lg:order-2">
                     <div>
-                        <h3 class="text-2xl font-bold text-white mb-6">Contactez-nous directement</h3>
+                        <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Contactez-nous directement</h3>
                         
-                        <div class="space-y-6">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-envelope text-white"></i>
+                        <div class="space-y-4 sm:space-y-6">
+                            <!-- Email - Touch friendly -->
+                            <div class="flex items-center p-3 sm:p-0">
+                                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-white text-lg sm:text-xl"></i>
                                 </div>
-                                <div>
-                                    <div class="text-white font-medium">Email</div>
-                                    <div class="text-gray-300">contact@ia-solutions-pme.fr</div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-phone text-white"></i>
-                                </div>
-                                <div>
-                                    <div class="text-white font-medium">Téléphone</div>
-                                    <div class="text-gray-300">+33 1 23 45 67 89</div>
+                                <div class="min-w-0">
+                                    <div class="text-white font-medium text-sm sm:text-base">Email</div>
+                                    <a href="mailto:contact@ia-solutions-pme.fr" class="text-gray-300 hover:text-white text-sm sm:text-base break-all">contact@ia-solutions-pme.fr</a>
                                 </div>
                             </div>
                             
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-map-marker-alt text-white"></i>
+                            <!-- Phone - Touch friendly -->
+                            <div class="flex items-center p-3 sm:p-0">
+                                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-white text-lg sm:text-xl"></i>
                                 </div>
                                 <div>
-                                    <div class="text-white font-medium">Adresse</div>
-                                    <div class="text-gray-300">Paris, France<br>Interventions dans toute la France</div>
+                                    <div class="text-white font-medium text-sm sm:text-base">Téléphone</div>
+                                    <a href="tel:+33123456789" class="text-gray-300 hover:text-white text-sm sm:text-base">+33 1 23 45 67 89</a>
                                 </div>
                             </div>
                             
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                                    <i class="fas fa-clock text-white"></i>
+                            <!-- Location -->
+                            <div class="flex items-start p-3 sm:p-0">
+                                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                    <i class="fas fa-map-marker-alt text-white text-lg sm:text-xl"></i>
                                 </div>
                                 <div>
-                                    <div class="text-white font-medium">Horaires</div>
-                                    <div class="text-gray-300">Lun-Ven: 9h-18h<br>Réponse sous 24h</div>
+                                    <div class="text-white font-medium text-sm sm:text-base">Adresse</div>
+                                    <div class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                                        Paris, France<br>
+                                        Interventions dans toute la France
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Schedule -->
+                            <div class="flex items-start p-3 sm:p-0">
+                                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 mt-1">
+                                    <i class="fas fa-clock text-white text-lg sm:text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white font-medium text-sm sm:text-base">Horaires</div>
+                                    <div class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                                        Lun-Ven: 9h-18h<br>
+                                        Réponse sous 24h
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- FAQ Quick -->
-                    <div class="bg-gray-800 p-6 rounded-lg">
-                        <h4 class="text-lg font-semibold text-white mb-4">Questions fréquentes</h4>
-                        <div class="space-y-3 text-sm">
-                            <div>
-                                <div class="text-blue-400 font-medium">Combien coûte une solution IA ?</div>
-                                <div class="text-gray-300">À partir de 2000€/mois selon vos besoins</div>
+                    <!-- Mobile-Optimized FAQ -->
+                    <div class="bg-gray-800 p-4 sm:p-6 rounded-lg sm:rounded-xl">
+                        <h4 class="text-base sm:text-lg font-semibold text-white mb-4">Questions fréquentes</h4>
+                        <div class="space-y-4 text-sm sm:text-base">
+                            <div class="border-b border-gray-700 pb-3 last:border-b-0 last:pb-0">
+                                <div class="text-blue-400 font-medium mb-1">Combien coûte une solution IA ?</div>
+                                <div class="text-gray-300 leading-relaxed">À partir de 2000€/mois selon vos besoins</div>
                             </div>
-                            <div>
-                                <div class="text-blue-400 font-medium">Combien de temps pour voir les résultats ?</div>
-                                <div class="text-gray-300">Premiers bénéfices visibles en 30-60 jours</div>
+                            <div class="border-b border-gray-700 pb-3 last:border-b-0 last:pb-0">
+                                <div class="text-blue-400 font-medium mb-1">Combien de temps pour voir les résultats ?</div>
+                                <div class="text-gray-300 leading-relaxed">Premiers bénéfices visibles en 30-60 jours</div>
                             </div>
-                            <div>
-                                <div class="text-blue-400 font-medium">Avez-vous des références ?</div>
-                                <div class="text-gray-300">Oui, plus de 50 PME accompagnées avec succès</div>
+                            <div class="border-b border-gray-700 pb-3 last:border-b-0 last:pb-0">
+                                <div class="text-blue-400 font-medium mb-1">Avez-vous des références ?</div>
+                                <div class="text-gray-300 leading-relaxed">Oui, plus de 50 PME accompagnées avec succès</div>
                             </div>
                         </div>
                     </div>
