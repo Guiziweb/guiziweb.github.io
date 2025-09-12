@@ -34,7 +34,7 @@ case "$TOOL_NAME" in
     
   "Task")
     AGENT_TYPE=$(echo "$TOOL_PARAMS" | jq -r '.subagent_type // empty')
-    if [[ "$AGENT_TYPE" != "frontend-agent" && "$AGENT_TYPE" != "content-agent" && "$AGENT_TYPE" != "qa-agent" ]]; then
+    if [[ "$AGENT_TYPE" != "frontend-agent" && "$AGENT_TYPE" != "content-agent" && "$AGENT_TYPE" != "qa-agent" && "$AGENT_TYPE" != "project-manager" ]]; then
       echo "⚠️  Agent non reconnu: $AGENT_TYPE"
     fi
     ;;

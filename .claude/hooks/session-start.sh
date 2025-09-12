@@ -4,14 +4,10 @@
 
 echo "🚀 Démarrage session Claude Code - Landing Page IA"
 
-# Charge le contexte projet
-if [ -f ".claude/project-context.md" ]; then
-    echo "📋 Contexte projet chargé: Landing page auto-entrepreneur IA"
-fi
-
-# Charge les contraintes techniques  
-if [ -f ".claude/tech-stack.md" ]; then
-    echo "⚙️ Stack technique: GitHub Pages + Tailwind CSS"
+# Charge la configuration principale
+if [ -f ".claude/MAIN.md" ]; then
+    echo "📋 Configuration chargée: Landing page auto-entrepreneur IA"
+    echo "⚙️ Stack: GitHub Pages + Tailwind CSS + Formspree"
 fi
 
 # Vérifie les issues GitHub ouvertes
