@@ -21,40 +21,53 @@
     
     <title>Solutions IA sur mesure pour PME | Auto-Entrepreneur IA</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
+    <!-- Google Fonts - Preload for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS with Enhanced Configuration -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    
+    <!-- Design System Styles -->
+    <link rel="stylesheet" href="design-system.css">
+    
+    <!-- Custom Styles & Enhancements -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Performance & SEO Meta Tags -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="msapplication-navbutton-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="script.js" as="script">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="design-system.css" as="style">
 </head>
 <body class="font-inter antialiased">
     
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Enhanced Navigation with Design System -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-xl shadow-soft border-b border-secondary-200/50" id="navbar">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex-shrink-0">
-                    <h1 class="text-2xl font-bold text-blue-600">
-                        <i class="fas fa-robot mr-2"></i>IA Solutions
+                    <h1 class="text-2xl font-bold text-primary-600 gradient-text">
+                        <i class="fas fa-robot mr-2 animate-float"></i>IA Solutions
                     </h1>
                 </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#hero" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Accueil</a>
-                        <a href="#services" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-                        <a href="#benefits" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Avantages</a>
-                        <a href="#testimonials" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Témoignages</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                        <a href="#hero" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Accueil</a>
+                        <a href="#services" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Services</a>
+                        <a href="#benefits" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Avantages</a>
+                        <a href="#testimonials" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Témoignages</a>
+                        <a href="#contact" class="nav-link text-secondary-700 hover:text-primary-600 transition-all duration-300 focus-primary">Contact</a>
                     </div>
                 </div>
                 
@@ -97,10 +110,10 @@
                     
                     <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#contact" class="cta-button bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center animate-pulse-subtle">
+                            <a href="#contact" class="btn btn-primary shadow-glow hover:shadow-glow-lg transform hover:scale-105 transition-all duration-300 animate-pulse-subtle focus-primary">
                                 <i class="fas fa-rocket mr-2"></i>Démarrer mon projet
                             </a>
-                            <a href="#services" class="secondary-button border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center">
+                            <a href="#services" class="btn btn-secondary border-2 border-primary-600 text-primary-600 hover:bg-primary-50 hover:shadow-soft-lg focus-primary">
                                 <i class="fas fa-play mr-2"></i>Découvrir nos services
                             </a>
                         </div>
@@ -154,20 +167,21 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-cogs text-2xl text-blue-600"></i>
+                <!-- Service 1 - Enhanced -->
+                <div class="card card-hover group relative p-8 overflow-hidden animate-fade-in-up stagger-1">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-600 to-accent-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    <div class="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary-200 transition-colors duration-300">
+                        <i class="fas fa-cogs text-2xl text-primary-600 group-hover:scale-110 transition-transform duration-300"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Automatisation des Processus</h3>
-                    <p class="text-gray-600 mb-6">
+                    <h3 class="text-xl font-semibold mb-4 text-secondary-900">Automatisation des Processus</h3>
+                    <p class="text-secondary-600 mb-6 leading-relaxed">
                         Automatisez vos tâches répétitives : facturation, gestion client, 
                         planification, reporting. Gagnez jusqu'à 40% de temps.
                     </p>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Workflows automatisés</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Intégrations sur mesure</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Formation incluse</li>
+                    <ul class="space-y-2 text-sm text-secondary-600">
+                        <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3 flex-shrink-0"></i>Workflows automatisés</li>
+                        <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3 flex-shrink-0"></i>Intégrations sur mesure</li>
+                        <li class="flex items-center"><i class="fas fa-check text-success-500 mr-3 flex-shrink-0"></i>Formation incluse</li>
                     </ul>
                 </div>
                 
