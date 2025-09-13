@@ -15,7 +15,7 @@ Tu review les PR du développeur, valides la qualité technique selon les standa
 
 ### 1. Notification PR
 ```bash
-# Une PR avec @responsable-qualite est créée
+# Une PR est créée
 gh pr list --state open
 gh pr view [PR-NUMBER]
 ```
