@@ -335,7 +335,7 @@
                 </p>
             </div>
             
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="max-w-4xl mx-auto">
                 <div class="space-y-8">
                     <!-- Benefit 1 -->
                     <div class="flex items-start space-x-4">
@@ -390,56 +390,6 @@
                                 Prenez une longueur d'avance sur vos concurrents en intégrant 
                                 des solutions IA innovantes et performantes.
                             </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ROI Calculator -->
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-bold mb-6 text-center">Calculez Votre Retour sur Investissement</h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <label for="employees" class="block text-sm font-medium text-gray-700 mb-2">
-                                Nombre d'employés
-                            </label>
-                            <select id="employees" class="w-full border border-gray-300 rounded-lg px-3 py-2">
-                                <option value="5">5-10 employés</option>
-                                <option value="15">10-20 employés</option>
-                                <option value="30">20-40 employés</option>
-                                <option value="50">40-50 employés</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label for="sector" class="block text-sm font-medium text-gray-700 mb-2">
-                                Secteur d'activité
-                            </label>
-                            <select id="sector" class="w-full border border-gray-300 rounded-lg px-3 py-2">
-                                <option value="commerce">Commerce</option>
-                                <option value="service">Services</option>
-                                <option value="industrie">Industrie</option>
-                                <option value="sante">Santé</option>
-                                <option value="batiment">Bâtiment</option>
-                            </select>
-                        </div>
-                        
-                        <button onclick="calculateROI()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                            Calculer mon ROI
-                        </button>
-                        
-                        <div id="roi-result" class="hidden bg-blue-50 p-4 rounded-lg">
-                            <h4 class="font-semibold text-blue-800 mb-2">Estimation de vos gains :</h4>
-                            <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-blue-600" id="monthly-savings">0€</div>
-                                    <div class="text-gray-600">Économies/mois</div>
-                                </div>
-                                <div class="text-center">
-                                    <div class="text-2xl font-bold text-green-600" id="roi-percentage">0%</div>
-                                    <div class="text-gray-600">ROI en 12 mois</div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
