@@ -4,9 +4,7 @@
 // Enhanced configuration for the design system
 // This extends the default Tailwind config via CDN
 
-// Configuration sécurisée pour le CDN Tailwind
-if (typeof tailwind !== 'undefined') {
-    tailwind.config = {
+tailwind.config = {
     darkMode: 'class', // Enable dark mode support
     theme: {
         screens: {
@@ -212,9 +210,6 @@ if (typeof tailwind !== 'undefined') {
     corePlugins: {
         // Enable all core plugins for maximum flexibility
     }
-    };
-} else {
-    console.warn('Tailwind CSS n\'est pas chargé via CDN');
 }
 
 // DOM Content Loaded
