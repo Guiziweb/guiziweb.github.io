@@ -14,35 +14,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: HTML5Validator
+      - name: HTML5 Validation
         uses: Cyb3r-Jak3/html5validator-action@v7.2.0
         with:
           root: ./
           
-      - name: GitHub Pages Build Test
-        run: |
-          echo "🚀 Test de build GitHub Pages..."
-          
-          # Simuler ce que fait GitHub Pages : upload et déploiement
-          # On utilise la même action que le vrai déploiement
-          
-      - name: Setup Pages (test)
+      - name: GitHub Pages Build Simulation
         uses: actions/configure-pages@v4
         
-      - name: Upload artifact (test) 
+      - name: Upload Pages Artifact (Test)
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-          
-      - name: Build Success Test
-        run: |
-          echo "✅ GitHub Pages build simulation réussie"
-          echo "✅ HTML W3C validé"
-          
-      - name: Build Success
-        run: |
-          echo "✅ BUILD OK - Pas d'erreur technique bloquante"
-          echo "📝 Review qualité → @responsable-qualite"
           
       - name: Notify Build Failure
         if: failure()
