@@ -240,6 +240,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         initParallaxEffects();
     }
+
+    // Initialize performance monitoring
+    initPerformanceMonitoring();
 });
 
 // Enhanced Mobile Menu Functions
@@ -341,7 +344,7 @@ function initSmoothScrolling() {
 // Update Active Navigation Link
 function updateActiveNavLink(activeId) {
     const navLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
-    
+
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === activeId) {
@@ -591,7 +594,7 @@ function validateField(field) {
             isValid = false;
         }
     } else if (fieldName === 'phone' && value) {
-        const phoneRegex = /^[\d\s\-\+\(\)\.]{10,}$/;
+        const phoneRegex = /^[\d\s\-+(.)]{10,}$/;
         if (!phoneRegex.test(value.replace(/\s/g, ''))) {
             errorMessage = 'Veuillez entrer un numéro de téléphone valide';
             isValid = false;
@@ -1087,15 +1090,7 @@ function initViewportOptimizations() {
     
     window.addEventListener('scroll', optimizedScroll, { passive: true });
     
-    // Preload critical images
-    const criticalImages = [
-        // Add any critical image paths here
-    ];
-    
-    criticalImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
+    // Note: Critical images preloading can be added here when needed
     
     // Lazy load non-critical content
     if ('IntersectionObserver' in window) {
@@ -1166,11 +1161,13 @@ function initPerformanceMonitoring() {
         // This would integrate with web-vitals library if available
         console.log('Performance monitoring initialized');
     }
-    
-    // Basic performance logging
+
+    // Basic performance logging with modern API
     window.addEventListener('load', function() {
-        if (performance.timing) {
-            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        // Use modern Navigation Timing API
+        const navigation = performance.getEntriesByType('navigation')[0];
+        if (navigation) {
+            const loadTime = navigation.loadEventEnd - navigation.fetchStart;
             console.log(`Page load time: ${loadTime}ms`);
         }
     });
@@ -1551,14 +1548,7 @@ function initDynamicContentLoading() {
 function enhanceFormInteractions() {
     const contactForm = document.querySelector('#contact form');
     if (!contactForm) return;
-    
-    // Advanced form state management
-    const formState = {
-        currentStep: 0,
-        isValid: false,
-        data: {}
-    };
-    
+
     // Real-time field enhancement
     const formInputs = contactForm.querySelectorAll('input, select, textarea');
     formInputs.forEach(input => {
@@ -1753,19 +1743,7 @@ function initStateManagement() {
             reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
             colorScheme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
         },
-        
-        updateSection(newSection) {
-            this.currentSection = newSection;
-            document.dispatchEvent(new CustomEvent('sectionChanged', { 
-                detail: { section: newSection }
-            }));
-        },
-        
-        saveFormData(data) {
-            this.formData = { ...this.formData, ...data };
-            localStorage.setItem('ia-solutions-form-data', JSON.stringify(this.formData));
-        },
-        
+
         loadFormData() {
             const saved = localStorage.getItem('ia-solutions-form-data');
             if (saved) {
