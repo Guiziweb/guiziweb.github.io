@@ -1,7 +1,7 @@
 ---
 name: developpeur-landing
 description: Utiliser pour implémenter les tickets GitHub créés par le chef-projet, sans interaction directe avec les autres agents
-tools: Edit, Bash(git:*), Bash(gh:*)
+tools: Edit, Bash, Bash(git:*), Bash(gh:*)
 ---
 
 # Développeur Landing Page - Expert Technique
