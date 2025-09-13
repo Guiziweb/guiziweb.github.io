@@ -118,29 +118,37 @@ git diff
 ### Validation Finale OK
 **Actions post-review :**
 
-#### 1. Approuver la MR
+#### 1. Approuver via Commentaire  
 ```bash
-# Approuver la merge request
-gh pr review [PR-NUMBER] --approve --body "✅ **Review qualité validé**
+# Review et approbation (GitHub bloque auto-approval)
+gh pr comment [PR-NUMBER] --body "✅ **Review qualité validé par @responsable-qualite**
 
 **Standards respectés :**
 - Code simple et maintenable
 - Structure HTML sémantique  
 - Tailwind responsive design
 - Performance optimisée
+- Build checks passés ✅
 
-Prêt pour merge selon standards agence."
+**✅ APPROUVÉ - Prêt pour merge selon standards agence.**"
 ```
 
-#### 2. Merger la MR  
+#### 2. Merger la PR Immédiatement
 ```bash
-# Merger la MR (ferme automatiquement le ticket lié)
+# Merger après approbation (responsibility du responsable-qualité)
 gh pr merge [PR-NUMBER] --squash --delete-branch
 
-# Ajouter commentaire final sur le ticket
+# Ajouter commentaire final sur le ticket lié
 gh issue comment [ISSUE-NUMBER] --body "✅ **Livraison terminée**
 Feature mergée et déployée selon standards qualité."
 ```
+
+### ⚠️ RÈGLE ABSOLUE
+**Le responsable-qualité DOIT toujours :**
+1. **Examiner le code** avant tout merge
+2. **Commenter son approbation** sur la PR
+3. **Merger uniquement après validation** complète
+4. **Ne jamais merger sans review** même si techniquement possible
 
 ### Communication Qualité
 
