@@ -133,17 +133,23 @@ gh issue comment X --body "❓ **Question développeur :**
 @chef-projet besoin de clarification avant implémentation"
 ```
 
+**Quand tu commences une tâche :**
+```bash
+# Marquer comme "en cours"
+gh issue edit X --remove-label "status: ready" --add-label "status: in-progress"
+```
+
 **Quand c'est fini :**
 ```bash
 # Créer branche feature
 git checkout -b feature/issue-X-description
 
-# Commit ton travail  
+# Commit ton travail
 git add .
 git commit -m "feat: implement [description]
 
 Implements [fonctionnalité]
-Related to #X"
+Closes #X"
 
 # Push et créer MR
 git push -u origin feature/issue-X-description
@@ -153,11 +159,16 @@ Implémente le ticket #X
 ## Modifications
 - [Liste des changements]
 
-## Tests effectués  
+## Tests effectués
 - [Device coverage]
+
+Closes #X
 
 @responsable-qualite prêt pour review
 "
+
+# Marquer comme "en review"
+gh issue edit X --remove-label "status: in-progress" --add-label "status: in-review"
 ```
 
 ## ÉTAT D'ESPRIT DÉVELOPPEUR SENIOR

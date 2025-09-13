@@ -133,10 +133,13 @@ gh pr comment [PR-NUMBER] --body "✅ **Review qualité validé par @responsable
 **✅ APPROUVÉ - Prêt pour merge selon standards agence.**"
 ```
 
-#### 2. Merger la PR Immédiatement
+#### 2. Merger la PR et Finaliser
 ```bash
 # Merger après approbation (responsibility du responsable-qualité)
 gh pr merge [PR-NUMBER] --squash --delete-branch
+
+# Marquer l'issue comme terminée
+gh issue edit [ISSUE-NUMBER] --remove-label "status: in-review" --add-label "status: done"
 
 # Ajouter commentaire final sur le ticket lié
 gh issue comment [ISSUE-NUMBER] --body "✅ **Livraison terminée**

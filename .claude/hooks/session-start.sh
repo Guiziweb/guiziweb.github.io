@@ -10,15 +10,32 @@ if [ -f ".claude/MAIN.md" ]; then
     echo "⚙️ Stack: GitHub Pages + Tailwind CSS + Formspree"
 fi
 
-# Vérifie les issues GitHub ouvertes
+# Vérifie les tâches par statut (labels)
 if command -v gh &> /dev/null; then
-    OPEN_ISSUES=$(gh issue list --state open --json number | jq length)
-    echo "📝 Issues ouvertes: $OPEN_ISSUES"
-    
-    # Si pas d'issues, suggère de créer un epic
-    if [ "$OPEN_ISSUES" -eq 0 ]; then
-        echo "💡 Suggestion: Créer une issue Epic pour démarrer le projet"
-        echo "   Exemple: gh issue create --title 'Epic: Créer landing page complète' --label epic"
+    READY_TASKS=$(gh issue list --label "status: ready" --state open --json number,title | jq length)
+    IN_PROGRESS_TASKS=$(gh issue list --label "status: in-progress" --state open --json number,title | jq length)
+    IN_REVIEW_TASKS=$(gh issue list --label "status: in-review" --state open --json number,title | jq length)
+
+    echo "📋 Tâches Kanban et routing agents:"
+    echo "   🎯 Pour @agent-developpeur-landing :"
+
+    if [ "$READY_TASKS" -gt 0 ]; then
+        gh issue list --label "status: ready" --state open --json number,title | jq -r '.[] | "      Issue\t\(.title)\t\(.number)\tGuiziweb/claude-full-autonomy\tREADY"'
+    fi
+
+    if [ "$IN_PROGRESS_TASKS" -gt 0 ]; then
+        echo "   ⚙️ En cours :"
+        gh issue list --label "status: in-progress" --state open --json number,title | jq -r '.[] | "      Issue\t\(.title)\t\(.number)\tGuiziweb/claude-full-autonomy\tIN_PROGRESS"'
+    fi
+
+    if [ "$IN_REVIEW_TASKS" -gt 0 ]; then
+        echo "   👀 En review :"
+        gh issue list --label "status: in-review" --state open --json number,title | jq -r '.[] | "      Issue\t\(.title)\t\(.number)\tGuiziweb/claude-full-autonomy\tIN_REVIEW"'
+    fi
+
+    # Si pas de tâches ready, suggère de créer un ticket
+    if [ "$READY_TASKS" -eq 0 ]; then
+        echo "💡 Aucune tâche Ready - Utiliser @chef-projet pour créer des tickets"
     fi
 fi
 

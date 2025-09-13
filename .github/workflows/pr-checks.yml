@@ -19,20 +19,6 @@ jobs:
         with:
           root: ./
 
-      - name: Move to In Review
-        if: success()
-        run: |
-          # Récupérer l'issue liée à la PR
-          ISSUE_NUMBER=$(gh pr view ${{ github.event.number }} --json body --jq '.body' | grep -o '#[0-9]\+' | head -1 | sed 's/#//')
-          if [ ! -z "$ISSUE_NUMBER" ]; then
-            # Récupérer le premier projet
-            FIRST_PROJECT=$(gh project list --owner "${{ github.repository_owner }}" | head -1 | cut -f1)
-            # Déplacer l'issue vers "In Review"
-            gh project item-edit --project-id $FIRST_PROJECT --id $(gh issue view $ISSUE_NUMBER --json projectItems --jq '.projectItems[0].id') --field-id $(gh project field-list $FIRST_PROJECT | grep "Status" | cut -f1) --single-select-option-id "In Review"
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Notify Build Failure
         if: failure()
         run: |
