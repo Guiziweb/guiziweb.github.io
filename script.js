@@ -1703,7 +1703,7 @@ function enhanceFormInteractions() {
         if (!progressBar) {
             progressBar = document.createElement('div');
             progressBar.className = 'form-progress-bar w-full h-1 bg-gray-200 rounded-full overflow-hidden mb-6';
-            progressBar.innerHTML = '<div class="progress-fill h-full bg-blue-600 transition-all duration-300 rounded-full" style="width: 0%"></div>';
+            progressBar.innerHTML = '<div class="progress-fill h-full bg-blue-600 transition-all duration-300 rounded-full" style="width: 0"></div>';
             
             contactForm.insertBefore(progressBar, contactForm.firstChild);
         }
@@ -1805,46 +1805,3 @@ function initAdvancedAnimationTriggers() {
     advancedElements.forEach(el => advancedObserver.observe(el));
 }
 
-// Console message for developers
-console.log(`
-🤖 IA Solutions PME - Landing Page v3.0
-Développé avec HTML5, Tailwind CSS et JavaScript Vanilla
-Compatible GitHub Pages - Mobile-First Enhanced
-
-Fonctionnalités incluses:
-✅ Navigation responsive avec animations avancées
-✅ Smooth scrolling optimisé
-✅ Calculateur ROI interactif avec temps réel
-✅ Validation formulaire en temps réel
-✅ Animations scroll avec Intersection Observer
-✅ Menu mobile avec transitions fluides
-✅ Back to top avec progress bar
-✅ Micro-interactions et hover effects
-✅ Toast notifications système
-✅ Button ripple effects
-✅ Parallax effects subtils (desktop only)
-✅ Performance optimisée (60fps)
-✅ Accessibility support (prefers-reduced-motion)
-
-🚀 New in v3.0 - Issue #5 Enhancements:
-✅ Smart navigation hide/show on scroll
-✅ Advanced breadcrumb navigation with progress
-✅ Interactive service card overlays
-✅ Advanced ROI calculator with detailed breakdown
-✅ Interactive testimonials carousel with touch
-✅ Enhanced form interactions with autocomplete
-✅ Dynamic content loading and state management
-✅ Progressive form validation with hints
-✅ Advanced animation triggers
-✅ Mobile swipe gestures
-
-🚀 Mobile-First Enhancements v2.0:
-✅ Touch-optimized interactions
-✅ Mobile-specific animations
-✅ Viewport optimization
-✅ Touch gestures (swipe to close menu)
-✅ Enhanced form experience
-✅ Performance monitoring
-✅ Responsive breakpoint optimization
-✅ Progressive enhancement
-`);
