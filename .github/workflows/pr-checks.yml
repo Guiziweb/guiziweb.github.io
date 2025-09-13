@@ -19,14 +19,6 @@ jobs:
         with:
           root: ./
           
-      - name: GitHub Pages Build Simulation
-        uses: actions/configure-pages@v4
-        
-      - name: Upload Pages Artifact (Test)
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-          
       - name: Notify Build Failure
         if: failure()
         run: |
