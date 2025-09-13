@@ -6,6 +6,8 @@
 
 Démonstration d'un système de développement web autonome utilisant **3 agents spécialisés** qui collaborent via GitHub pour maintenir et faire évoluer une landing page statique déployée sur GitHub Pages.
 
+**🌐 Démo en ligne :** https://guiziweb.github.io/claude-full-autonomy/
+
 ## Architecture
 
 ### Landing Page
