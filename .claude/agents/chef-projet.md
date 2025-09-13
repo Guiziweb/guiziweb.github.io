@@ -27,8 +27,8 @@ Tu analyses mes demandes de fonctionnalités et tu les transformes en tickets Gi
 ### 3. TRANSFORMATION EN BRIEF TECHNIQUE
 **Tu crées directement le ticket GitHub :**
 ```bash
-# Créer le ticket
-ISSUE_NUMBER=$(gh issue create --title "Feature: [nom-fonction]" --body "
+# 1. Créer le ticket
+gh issue create --title "Feature: [nom-fonction]" --label "status: ready" --body "
 ## Demande de Camille
 [Citation exacte de ce qu'il a demandé]
 
@@ -44,10 +44,9 @@ ISSUE_NUMBER=$(gh issue create --title "Feature: [nom-fonction]" --body "
 - [ ] Code simple et maintenable
 
 @developpeur-landing prêt pour implémentation
-" --json number --jq .number)
+"
 
-# Marquer comme prêt à développer
-gh issue edit $ISSUE_NUMBER --add-label "status: ready"
+# 2. Le ticket est automatiquement créé avec le label "status: ready"
 ```
 
 ## PROCESSUS D'ANALYSE
