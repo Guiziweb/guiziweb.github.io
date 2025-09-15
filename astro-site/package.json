@@ -1,0 +1,21 @@
+{
+  "name": "astro-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.5.1",
+    "@heroicons/react": "^2.2.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.13",
+    "astro": "^5.13.7",
+    "astro-seo": "^0.8.4",
+    "swiper": "^12.0.1",
+    "tailwindcss": "^4.1.13"
+  }
+}

@@ -1,16 +1,14 @@
 // ========================================
-// JAVASCRIPT SIMPLIFIÉ - LANDING PAGE IA
+// JAVASCRIPT OPTIMISÉ - LANDING PAGE IA
 // ========================================
-// Version finalisée : 4 fonctionnalités essentielles uniquement
-// Réduction de 1807 lignes à ~200 lignes (89% de réduction)
+// Version nettoyée : fonctionnalités essentielles uniquement
 
-// DOM Content Loaded - FONCTIONNALITÉS ESSENTIELLES UNIQUEMENT
+// DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initMobileMenu();        // Navigation mobile basique
+    initMobileMenu();        // Navigation mobile
     initSmoothScrolling();   // Smooth scroll pour les ancres
-    initFormValidation();    // Validation formulaire complète
     initBackToTop();         // Back to top
-    enhanceMobileFormExperience(); // Amélioration mobile
+    initCalendlyHighlight(); // Calendly highlight effect
 });
 
 // ========================================
@@ -70,9 +68,15 @@ function initSmoothScrolling() {
 
     links.forEach(link => {
         link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+
+            // Ignore empty or invalid selectors
+            if (!targetId || targetId === '#' || targetId.length <= 1) {
+                return;
+            }
+
             e.preventDefault();
 
-            const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
 
             if (targetSection) {
@@ -114,160 +118,26 @@ function initBackToTop() {
 }
 
 // ========================================
-// 4. FORM VALIDATION - Simple et robuste
+// 4. CALENDLY HIGHLIGHT EFFECT
 // ========================================
-function initFormValidation() {
-    const contactForm = document.querySelector('#contact form');
+function initCalendlyHighlight() {
+    const highlightButton = document.getElementById('highlight-calendly');
+    const calendlyWidget = document.getElementById('calendly-widget');
 
-    if (!contactForm) return;
+    if (highlightButton && calendlyWidget) {
+        highlightButton.addEventListener('click', function() {
+            // Scroll vers le calendly si on est sur mobile
+            calendlyWidget.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    const requiredFields = contactForm.querySelectorAll('[required]');
+            // Effet de surbrillance
+            calendlyWidget.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.6), 0 0 60px rgba(59, 130, 246, 0.4)';
+            calendlyWidget.style.transform = 'scale(1.02)';
 
-    // Real-time validation on blur
-    requiredFields.forEach(field => {
-        field.addEventListener('blur', function() {
-            validateField(this);
+            // Retour à la normale après 2 secondes
+            setTimeout(() => {
+                calendlyWidget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                calendlyWidget.style.transform = 'scale(1)';
+            }, 2000);
         });
-
-        field.addEventListener('input', function() {
-            clearFieldError(this);
-        });
-    });
-
-    // Form submission validation
-    contactForm.addEventListener('submit', function(e) {
-        let isValid = true;
-
-        // Validate required fields
-        requiredFields.forEach(field => {
-            if (!validateField(field)) {
-                isValid = false;
-            }
-        });
-
-        // Validate checkboxes (needs)
-        const needsCheckboxes = contactForm.querySelectorAll('input[name="needs"]:checked');
-        if (needsCheckboxes.length === 0) {
-            showError(contactForm.querySelector('input[name="needs"]').closest('div'),
-                     'Veuillez sélectionner au moins un besoin');
-            isValid = false;
-        }
-
-        if (!isValid) {
-            e.preventDefault();
-
-            // Scroll to first error
-            const firstError = contactForm.querySelector('.error-message');
-            if (firstError) {
-                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        } else {
-            // Show loading state
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            if (submitBtn) {
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
-                submitBtn.disabled = true;
-            }
-        }
-    });
-}
-
-// Field validation helper
-function validateField(field) {
-    const value = field.value.trim();
-    const fieldName = field.getAttribute('name');
-    let isValid = true;
-    let errorMessage = '';
-
-    // Clear previous error
-    clearFieldError(field);
-
-    // Required field check
-    if (field.hasAttribute('required') && !value) {
-        errorMessage = 'Ce champ est obligatoire';
-        isValid = false;
-    } else if (fieldName === 'email' && value) {
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-            errorMessage = 'Veuillez entrer une adresse email valide';
-            isValid = false;
-        }
-    } else if (fieldName === 'phone' && value) {
-        // Phone validation
-        const phoneRegex = /^[\d\s\-+(.)]{10,}$/;
-        if (!phoneRegex.test(value.replace(/\s/g, ''))) {
-            errorMessage = 'Veuillez entrer un numéro de téléphone valide';
-            isValid = false;
-        }
     }
-
-    if (!isValid) {
-        showError(field, errorMessage);
-    }
-
-    return isValid;
-}
-
-// Show error message
-function showError(field, message) {
-    field.classList.add('border-red-500');
-    field.classList.remove('border-gray-300');
-
-    // Remove existing error message
-    const existingError = field.parentNode.querySelector('.error-message');
-    if (existingError) {
-        existingError.remove();
-    }
-
-    // Add error message
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message text-red-500 text-sm mt-1';
-    errorDiv.textContent = message;
-
-    field.parentNode.appendChild(errorDiv);
-}
-
-// Clear error message
-function clearFieldError(field) {
-    field.classList.remove('border-red-500');
-    field.classList.add('border-gray-300');
-
-    const errorMessage = field.parentNode.querySelector('.error-message');
-    if (errorMessage) {
-        errorMessage.remove();
-    }
-}
-
-// ========================================
-// 5. ENHANCED MOBILE FORM EXPERIENCE
-// ========================================
-function enhanceMobileFormExperience() {
-    const formInputs = document.querySelectorAll('input, textarea, select');
-
-    formInputs.forEach(input => {
-        // Auto-scroll to input on focus (mobile)
-        input.addEventListener('focus', function() {
-            if (window.innerWidth <= 768) {
-                setTimeout(() => {
-                    this.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center',
-                        inline: 'nearest'
-                    });
-                }, 300); // Wait for virtual keyboard
-            }
-        });
-
-        // Format phone number as user types
-        if (input.type === 'tel') {
-            input.addEventListener('input', function() {
-                let value = this.value.replace(/\D/g, '');
-                if (value.length >= 10) {
-                    value = value.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1 $2 $3 $4 $5');
-                }
-                this.value = value;
-            });
-        }
-    });
 }

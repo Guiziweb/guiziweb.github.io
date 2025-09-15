@@ -1,0 +1,342 @@
+---
+// Import Tailwind styles
+import '../styles/global.css';
+import { SEO } from "astro-seo";
+import Icon from '../components/Icon.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Guiziweb, entreprise spécialisée en solutions IA pour PME : automatisations intelligentes, intégrations ERP, sites web IA. Expertise technique et conseil stratégique." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <SEO
+      title={title}
+      description={description}
+      canonical="https://guiziweb.github.io"
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          image: "https://guiziweb.github.io/favicon.svg",
+          url: "https://guiziweb.github.io"
+        },
+        optional: {
+          description: description,
+          siteName: "Guiziweb - Solutions IA Entreprise",
+        }
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title: title,
+        description: description,
+        image: "https://guiziweb.github.io/favicon.svg"
+      }}
+      extend={{
+        meta: [
+          { name: "keywords", content: "consultant IA, automatisation entreprise, intelligence artificielle, productivité entreprise, chatbot, analyse données, PME, solutions IA" },
+          { name: "author", content: "Guiziweb - Entreprise IA & Automatisations" },
+          { name: "robots", content: "index, follow" },
+          { name: "theme-color", content: "#2563eb" },
+          { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+          { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+          { name: "msapplication-navbutton-color", content: "#2563eb" }
+        ]
+      }}
+    />
+
+    <!-- Google Fonts - Preload for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+
+
+    <!-- Performance & SEO Meta Tags -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="msapplication-navbutton-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body class="font-inter antialiased bg-gray-950 text-gray-100">
+
+    <!-- Enhanced Mobile-First Navigation -->
+    <nav class="fixed w-full z-50 bg-gray-900/95 backdrop-blur-xl shadow-2xl border-b border-gray-800 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center py-3 sm:py-4">
+                <!-- Logo - Optimized for mobile -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                        <Icon name="fa-code" class="mr-1 sm:mr-2 text-lg sm:text-xl" />
+                        Guiziweb
+                    </h1>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6 lg:space-x-8">
+                        <a href="/" class="nav-link text-gray-300 hover:text-blue-400 transition-all duration-300 text-sm lg:text-base">Accueil</a>
+                        <a href="/#services" class="nav-link text-gray-300 hover:text-blue-400 transition-all duration-300 text-sm lg:text-base">Services</a>
+                        <a href="/#benefits" class="nav-link text-gray-300 hover:text-blue-400 transition-all duration-300 text-sm lg:text-base">Avantages</a>
+                        <a href="/blog/" class="nav-link text-gray-300 hover:text-blue-400 transition-all duration-300 text-sm lg:text-base">Blog</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button - Touch-friendly -->
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-btn p-2 -mr-2 text-gray-300 hover:text-blue-400 hover:bg-gray-800 rounded-lg transition-all duration-200 touch-manipulation" aria-expanded="false" aria-label="Toggle navigation menu">
+                        <span class="sr-only">Ouvrir le menu principal</span>
+                        <Icon name="fa-bars" class="text-xl transition-transform duration-300" />
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Mobile Menu with Better Touch Targets -->
+        <div class="md:hidden mobile-menu hidden">
+            <div class="px-2 pt-2 pb-4 space-y-1 bg-gray-900 shadow-2xl border-t border-gray-800">
+                <a href="/" class="nav-link-mobile block px-4 py-3 text-gray-300 hover:text-gray-100 hover:bg-gray-800 text-base font-medium rounded-lg mx-2 touch-manipulation transition-all duration-200">
+                    Accueil
+                </a>
+                <a href="/#services" class="nav-link-mobile block px-4 py-3 text-gray-300 hover:text-gray-100 hover:bg-gray-800 text-base font-medium rounded-lg mx-2 touch-manipulation transition-all duration-200">
+                    Services
+                </a>
+                <a href="/#benefits" class="nav-link-mobile block px-4 py-3 text-gray-300 hover:text-gray-100 hover:bg-gray-800 text-base font-medium rounded-lg mx-2 touch-manipulation transition-all duration-200">
+                    Avantages
+                </a>
+                <a href="/blog/" class="nav-link-mobile block px-4 py-3 text-gray-300 hover:text-gray-100 hover:bg-gray-800 text-base font-medium rounded-lg mx-2 touch-manipulation transition-all duration-200">
+                    Blog
+                </a>
+                <!-- Mobile CTA -->
+                <div class="px-4 pt-3 border-t border-gray-800 mt-3">
+                    <button class="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 px-4 rounded-lg font-semibold text-center block hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 touch-manipulation" onclick="document.getElementById('calendly-widget').scrollIntoView({ behavior: 'smooth', block: 'center' }); document.getElementById('calendly-widget').style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.6)'; setTimeout(() => document.getElementById('calendly-widget').style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)', 2000);">
+                        <Icon name="fa-calendar" class="mr-2" />Prendre rendez-vous
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <slot />
+    </main>
+
+    <!-- Main JavaScript -->
+    <script is:inline src="/scripts/main.js"></script>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/95 backdrop-blur-xl border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-4 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Informations société -->
+                <div>
+                    <h3 class="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+                        <Icon name="fa-code" class="mr-2" />Guiziweb
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                        Solutions IA intelligentes pour PME. Automatisations, intégrations ERP et développement web innovant.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="mailto:contact@guiziweb.com" class="text-gray-400 hover:text-blue-400 transition-colors">
+                            <Icon name="fa-envelope" size="18" />
+                        </a>
+                        <a href="https://linkedin.com/company/guiziweb" class="text-gray-400 hover:text-blue-400 transition-colors" target="_blank">
+                            <Icon name="fab fa-linkedin" size="18" />
+                        </a>
+                        <a href="https://github.com/guiziweb" class="text-gray-400 hover:text-blue-400 transition-colors" target="_blank">
+                            <Icon name="fab fa-github" size="18" />
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Liens rapides -->
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-100 mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="/" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Accueil</a>
+                        </li>
+                        <li>
+                            <a href="/#services" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Services</a>
+                        </li>
+                        <li>
+                            <a href="/#benefits" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Avantages</a>
+                        </li>
+                        <li>
+                            <a href="/blog/" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Informations légales -->
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-100 mb-4">Informations légales</h4>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="/mentions-legales" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Mentions légales</a>
+                        </li>
+                        <li>
+                            <a href="/politique-confidentialite" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Politique de confidentialité</a>
+                        </li>
+                        <li>
+                            <a href="/conditions-utilisation" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Conditions d'utilisation</a>
+                        </li>
+                        <li>
+                            <a href="/politique-cookies" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Politique de cookies</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Ligne de séparation -->
+            <div class="border-t border-gray-800 mt-8 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        © {new Date().getFullYear()} Guiziweb. Tous droits réservés.
+                    </p>
+                    <p class="text-gray-500 text-xs">
+                        Site développé avec <Icon name="fa-heart" class="text-red-400 mx-1" size="16" /> par Guiziweb
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bandeau de consentement cookies -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-900/98 backdrop-blur-xl border-t border-gray-700 p-4 md:p-6 z-50 transform translate-y-full transition-transform duration-500 ease-out">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center gap-4">
+                <!-- Icône et texte -->
+                <div class="flex items-start gap-3 flex-1">
+                    <div class="flex-shrink-0 mt-1">
+                        <Icon name="fa-cookie-bite" class="text-blue-400" size="32" />
+                    </div>
+                    <div class="text-sm text-gray-300">
+                        <p class="font-medium mb-1">🍪 Nous utilisons des cookies</p>
+                        <p>
+                            Ce site utilise des cookies pour améliorer votre expérience et analyser notre trafic.
+                            <a href="/politique-cookies" class="text-blue-400 hover:text-blue-300 underline transition-colors">En savoir plus</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Boutons d'action -->
+                <div class="flex flex-col sm:flex-row gap-2 lg:flex-shrink-0">
+                    <button
+                        id="cookie-settings"
+                        class="px-4 py-2 text-sm bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white rounded-lg transition-colors duration-200 border border-gray-600"
+                    >
+                        <Icon name="fa-cog" class="mr-1" size="16" />
+                        Personnaliser
+                    </button>
+                    <button
+                        id="cookie-decline"
+                        class="px-4 py-2 text-sm bg-gray-700 text-gray-300 hover:bg-red-600 hover:text-white rounded-lg transition-colors duration-200 border border-gray-600 hover:border-red-500"
+                    >
+                        <Icon name="fa-times" class="mr-1" size="16" />
+                        Refuser
+                    </button>
+                    <button
+                        id="cookie-accept"
+                        class="px-6 py-2 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-blue-500/25"
+                    >
+                        <Icon name="fa-check" class="mr-1" size="16" />
+                        Accepter tout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de personnalisation des cookies -->
+    <div id="cookie-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-60 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-gray-900 border border-gray-700 rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+                <!-- En-tête -->
+                <div class="flex items-center justify-between p-6 border-b border-gray-700">
+                    <h3 class="text-xl font-bold text-gray-100">
+                        <Icon name="fa-cookie-bite" class="text-blue-400 mr-2" size="20" />
+                        Paramètres des cookies
+                    </h3>
+                    <button id="cookie-modal-close" class="text-gray-400 hover:text-gray-200 transition-colors">
+                        <Icon name="fa-times" size="20" />
+                    </button>
+                </div>
+
+                <!-- Contenu -->
+                <div class="p-6 space-y-6">
+                    <p class="text-gray-300 text-sm">
+                        Nous utilisons des cookies pour améliorer votre expérience. Vous pouvez choisir quels cookies accepter.
+                    </p>
+
+                    <!-- Cookies essentiels -->
+                    <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-semibold text-green-300">
+                                <Icon name="fa-shield-alt" class="mr-2" size="16" />
+                                Cookies essentiels
+                            </h4>
+                            <div class="bg-green-600 text-white text-xs px-2 py-1 rounded">
+                                Toujours actif
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400">
+                            Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.
+                        </p>
+                    </div>
+
+                    <!-- Cookies analytiques -->
+                    <div class="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-semibold text-blue-300">
+                                <Icon name="fa-chart-line" class="mr-2" size="16" />
+                                Cookies analytiques
+                            </h4>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="analytics-cookies" class="sr-only peer" checked>
+                                <div class="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                            </label>
+                        </div>
+                        <p class="text-sm text-gray-400">
+                            Nous aident à comprendre comment vous utilisez notre site (Google Analytics).
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Pied de modal -->
+                <div class="flex flex-col sm:flex-row gap-2 p-6 border-t border-gray-700">
+                    <button
+                        id="cookie-save-preferences"
+                        class="flex-1 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors duration-200"
+                    >
+                        <Icon name="fa-check" class="mr-1" size="16" />
+                        Sauvegarder mes préférences
+                    </button>
+                    <button
+                        id="cookie-accept-all"
+                        class="flex-1 px-4 py-2 bg-green-600 text-white hover:bg-green-700 rounded-lg transition-colors duration-200"
+                    >
+                        <Icon name="fa-check" class="mr-1" size="16" />
+                        Accepter tout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-200 z-40 hidden">
+        <Icon name="fa-arrow-up" size="16" />
+    </button>
+
+</body>
+</html>

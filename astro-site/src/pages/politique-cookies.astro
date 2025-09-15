@@ -1,0 +1,389 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<BaseLayout
+    title="Politique de Cookies - Guiziweb"
+    description="Politique d'utilisation des cookies sur le site Guiziweb. Informations sur les cookies utilisés et gestion de vos préférences."
+>
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-100 mb-6">
+                    Politique de Cookies
+                </h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Informations sur l'utilisation des cookies et gestion de vos préférences
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-gray-700/50">
+
+                <!-- Qu'est-ce qu'un cookie -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-blue-400 mb-4 flex items-center">
+                        <Icon name="fa-cookie-bite" class="mr-3" />
+                        Qu'est-ce qu'un cookie ?
+                    </h2>
+                    <div class="text-gray-300 space-y-4">
+                        <p>
+                            Un cookie est un petit fichier de données stocké sur votre ordinateur, tablette ou smartphone lorsque vous visitez un site web. Les cookies permettent au site de mémoriser vos actions et préférences pendant une période donnée.
+                        </p>
+                        <p>
+                            Les cookies ne contiennent pas d'informations permettant de vous identifier personnellement, mais ils peuvent permettre de vous offrir une expérience web plus personnalisée.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Types de cookies -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-blue-400 mb-4 flex items-center">
+                        <Icon name="fa-layer-group" class="mr-3" />
+                        Types de cookies utilisés
+                    </h2>
+                    <div class="text-gray-300 space-y-6">
+
+                        <!-- Cookies techniques -->
+                        <div class="bg-green-900/20 border border-green-600/50 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-green-300 mb-3 flex items-center">
+                                <Icon name="fa-cog" class="mr-2" />
+                                Cookies techniques (essentiels)
+                            </h3>
+                            <p class="mb-3">Ces cookies sont nécessaires au fonctionnement du site et ne peuvent pas être désactivés.</p>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Finalité :</span>
+                                    <span class="text-sm">Fonctionnement du site</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Durée :</span>
+                                    <span class="text-sm">Session</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Consentement :</span>
+                                    <span class="text-sm text-green-400">Non requis</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cookies analytiques -->
+                        <div class="bg-blue-900/20 border border-blue-600/50 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-blue-300 mb-3 flex items-center">
+                                <Icon name="fa-chart-bar" class="mr-2" />
+                                Cookies analytiques
+                            </h3>
+                            <p class="mb-3">Ces cookies nous aident à comprendre comment vous utilisez notre site.</p>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Service :</span>
+                                    <span class="text-sm">Google Analytics</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Finalité :</span>
+                                    <span class="text-sm">Analyse d'audience</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Durée :</span>
+                                    <span class="text-sm">2 ans maximum</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Consentement :</span>
+                                    <span class="text-sm text-blue-400">Requis</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 p-3 bg-gray-700/30 rounded">
+                                <h4 class="font-medium text-gray-100 mb-2">Cookies Google Analytics utilisés :</h4>
+                                <ul class="text-sm space-y-1 ml-4 list-disc list-inside">
+                                    <li><code class="bg-gray-600/50 px-1 rounded">_ga</code> - Identifiant unique visiteur</li>
+                                    <li><code class="bg-gray-600/50 px-1 rounded">_ga_*</code> - État de la session</li>
+                                    <li><code class="bg-gray-600/50 px-1 rounded">_gid</code> - Identifiant unique visiteur (24h)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Finalités détaillées -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-blue-400 mb-4 flex items-center">
+                        <Icon name="fa-bullseye" class="mr-3" />
+                        Finalités d'utilisation
+                    </h2>
+                    <div class="text-gray-300 space-y-4">
+                        <p>Nous utilisons les cookies pour :</p>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-700/30 rounded-lg p-4">
+                                <h3 class="font-semibold text-blue-300 mb-2 flex items-center">
+                                    <Icon name="fa-tachometer-alt" class="mr-2" />
+                                    Performance
+                                </h3>
+                                <ul class="text-sm space-y-1 list-disc list-inside ml-2">
+                                    <li>Mesurer la vitesse de chargement</li>
+                                    <li>Optimiser les performances</li>
+                                    <li>Détecter les erreurs techniques</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-gray-700/30 rounded-lg p-4">
+                                <h3 class="font-semibold text-green-300 mb-2 flex items-center">
+                                    <Icon name="fa-users" class="mr-2" />
+                                    Analyse d'audience
+                                </h3>
+                                <ul class="text-sm space-y-1 list-disc list-inside ml-2">
+                                    <li>Comprendre le comportement visiteurs</li>
+                                    <li>Mesurer la fréquentation</li>
+                                    <li>Identifier les pages populaires</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-gray-700/30 rounded-lg p-4">
+                                <h3 class="font-semibold text-purple-300 mb-2 flex items-center">
+                                    <Icon name="fa-calendar-alt" class="mr-2" />
+                                    Services intégrés
+                                </h3>
+                                <ul class="text-sm space-y-1 list-disc list-inside ml-2">
+                                    <li>Widget de prise de rendez-vous (Calendly)</li>
+                                    <li>Améliorer la navigation</li>
+                                    <li>Fonctionnement des services</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-gray-700/30 rounded-lg p-4">
+                                <h3 class="font-semibold text-yellow-300 mb-2 flex items-center">
+                                    <Icon name="fa-shield-alt" class="mr-2" />
+                                    Sécurité
+                                </h3>
+                                <ul class="text-sm space-y-1 list-disc list-inside ml-2">
+                                    <li>Prévenir la fraude</li>
+                                    <li>Sécuriser les sessions</li>
+                                    <li>Détecter les abus</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gestion des cookies -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-blue-400 mb-4 flex items-center">
+                        <Icon name="fa-cogs" class="mr-3" />
+                        Gestion de vos préférences
+                    </h2>
+                    <div class="text-gray-300 space-y-6">
+
+                        <div class="bg-blue-900/20 border border-blue-600/50 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-blue-300 mb-3 flex items-center">
+                                <Icon name="fa-mouse-pointer" class="mr-2" />
+                                Bandeau de consentement
+                            </h3>
+                            <p class="mb-3">
+                                Lors de votre première visite, un bandeau vous permet de choisir quels cookies accepter.
+                            </p>
+                            <div class="space-y-2">
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors mr-2">
+                                    <Icon name="fa-check" class="mr-1" />
+                                    Accepter tous les cookies
+                                </button>
+                                <button class="bg-gray-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition-colors mr-2">
+                                    <Icon name="fa-cog" class="mr-1" />
+                                    Personnaliser
+                                </button>
+                                <button class="bg-red-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-red-700 transition-colors">
+                                    <Icon name="fa-times" class="mr-1" />
+                                    Refuser
+                                </button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-100 mb-3 flex items-center">
+                                <Icon name="fa-browser" class="mr-2 text-orange-400" />
+                                Configuration du navigateur
+                            </h3>
+                            <p class="mb-4">Vous pouvez également gérer les cookies directement via votre navigateur :</p>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-gray-700/30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-100 mb-2 flex items-center">
+                                        <Icon name="fab fa-chrome" class="mr-2 text-yellow-400" />
+                                        Chrome
+                                    </h4>
+                                    <p class="text-sm">Paramètres → Confidentialité et sécurité → Cookies</p>
+                                </div>
+
+                                <div class="bg-gray-700/30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-100 mb-2 flex items-center">
+                                        <Icon name="fab fa-firefox-browser" class="mr-2 text-orange-400" />
+                                        Firefox
+                                    </h4>
+                                    <p class="text-sm">Options → Vie privée et sécurité → Cookies</p>
+                                </div>
+
+                                <div class="bg-gray-700/30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-100 mb-2 flex items-center">
+                                        <Icon name="fab fa-safari" class="mr-2 text-blue-400" />
+                                        Safari
+                                    </h4>
+                                    <p class="text-sm">Préférences → Confidentialité → Cookies</p>
+                                </div>
+
+                                <div class="bg-gray-700/30 rounded-lg p-4">
+                                    <h4 class="font-semibold text-gray-100 mb-2 flex items-center">
+                                        <Icon name="fab fa-edge" class="mr-2 text-blue-500" />
+                                        Edge
+                                    </h4>
+                                    <p class="text-sm">Paramètres → Confidentialité → Cookies</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cookies tiers -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-blue-400 mb-4 flex items-center">
+                        <Icon name="fa-external-link-alt" class="mr-3" />
+                        Cookies de services tiers
+                    </h2>
+                    <div class="text-gray-300 space-y-6">
+                        <p>
+                            Notre site utilise des services tiers qui peuvent déposer leurs propres cookies :
+                        </p>
+
+                        <!-- Google Analytics -->
+                        <div class="bg-gradient-to-r from-red-900/20 to-yellow-900/20 border border-red-600/30 rounded-lg p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-semibold text-red-300 flex items-center">
+                                    <Icon name="fab fa-google" class="mr-2" />
+                                    Google Analytics
+                                </h3>
+                                <span class="text-xs bg-blue-600 text-white px-2 py-1 rounded">Analytique</span>
+                            </div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Finalité :</span>
+                                    <span>Analyse du trafic web</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Données collectées :</span>
+                                    <span>Anonymisées</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Opt-out :</span>
+                                    <a href="https://tools.google.com/dlpage/gaoptout" class="text-blue-400 hover:text-blue-300 transition-colors" target="_blank">
+                                        Extension Google Analytics
+                                        <Icon name="fa-external-link-alt" class="ml-1 text-xs" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calendly -->
+                        <div class="bg-gradient-to-r from-blue-900/20 to-cyan-900/20 border border-blue-600/30 rounded-lg p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-lg font-semibold text-blue-300 flex items-center">
+                                    <Icon name="fa-calendar-alt" class="mr-2" />
+                                    Calendly
+                                </h3>
+                                <span class="text-xs bg-green-600 text-white px-2 py-1 rounded">Fonctionnel</span>
+                            </div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Finalité :</span>
+                                    <span>Prise de rendez-vous</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Activation :</span>
+                                    <span>Lors de l'utilisation du widget</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Politique :</span>
+                                    <a href="https://calendly.com/privacy" class="text-blue-400 hover:text-blue-300 transition-colors" target="_blank">
+                                        Calendly Privacy
+                                        <Icon name="fa-external-link-alt" class="ml-1 text-xs" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact du refus -->
+                <div class="mb-10">
+                    <h2 class="text-2xl font-bold text-blue-400 mb-4 flex items-center">
+                        <Icon name="fa-info-circle" class="mr-3" />
+                        Impact du refus des cookies
+                    </h2>
+                    <div class="text-gray-300 space-y-4">
+                        <p>
+                            Vous pouvez refuser l'utilisation de cookies, mais cela peut affecter votre expérience sur notre site :
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-red-900/20 border border-red-600/50 rounded-lg p-4">
+                                <h3 class="font-semibold text-red-300 mb-2 flex items-center">
+                                    <Icon name="fa-times-circle" class="mr-2" />
+                                    Sans cookies analytiques
+                                </h3>
+                                <ul class="text-sm space-y-1 list-disc list-inside ml-2">
+                                    <li>Pas d'impact sur la navigation</li>
+                                    <li>Données d'amélioration limitées</li>
+                                    <li>Pas de personnalisation</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-orange-900/20 border border-orange-600/50 rounded-lg p-4">
+                                <h3 class="font-semibold text-orange-300 mb-2 flex items-center">
+                                    <Icon name="fa-exclamation-triangle" class="mr-2" />
+                                    Sans cookies techniques
+                                </h3>
+                                <ul class="text-sm space-y-1 list-disc list-inside ml-2">
+                                    <li>Fonctionnalités limitées</li>
+                                    <li>Problèmes de navigation</li>
+                                    <li>Sécurité réduite</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="bg-gray-700/30 rounded-xl p-6 border border-gray-600/50">
+                    <h3 class="text-xl font-semibold text-blue-400 mb-4 flex items-center">
+                        <Icon name="fa-envelope" class="mr-3" />
+                        Questions sur les cookies
+                    </h3>
+                    <p class="text-gray-300 mb-4">
+                        Pour toute question concernant notre utilisation des cookies :
+                    </p>
+                    <div class="text-gray-300">
+                        <p><strong>Email :</strong> <a href="mailto:contact@guiziweb.com" class="text-blue-400 hover:text-blue-300 transition-colors">contact@guiziweb.com</a></p>
+                        <p><strong>Objet :</strong> "Question cookies"</p>
+                    </div>
+                </div>
+
+                <!-- Date de mise à jour -->
+                <div class="mt-8 pt-6 border-t border-gray-600/50 text-center">
+                    <p class="text-gray-400 text-sm">
+                        <Icon name="fa-calendar-alt" class="mr-2" />
+                        Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
