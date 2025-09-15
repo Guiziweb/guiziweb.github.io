@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://guiziweb.github.io/sitemap-index.xml
-
-# Optimizations
-Crawl-delay: 1
